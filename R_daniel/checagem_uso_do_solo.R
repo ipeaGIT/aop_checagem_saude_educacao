@@ -196,6 +196,8 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
       dpi = 150
     )
 
+    return(0)
+
   }
 
 
@@ -264,9 +266,9 @@ gera_mapa_comparacoes <- function(n_cores) {
   future::plan(future::multisession, workers = n_cores)
 
   invisible(furrr::future_map(munis_df$abrev_muni, function(i) {
-    comparacao_uso_do_solo(i, "empregos")
-    comparacao_uso_do_solo(i, "saude")
-    comparacao_uso_do_solo(i, "edu")
+    comparacao_uso_do_solo(i, "empregos", TRUE)
+    comparacao_uso_do_solo(i, "saude", TRUE)
+    comparacao_uso_do_solo(i, "edu", TRUE)
   }))
 
   future::plan(future::sequential)
