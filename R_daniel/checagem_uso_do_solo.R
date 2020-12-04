@@ -1,5 +1,6 @@
 library(ggplot2)
 library(data.table)
+library(dplyr)
 
 
 # setup -------------------------------------------------------------------
@@ -55,7 +56,13 @@ if (!exists("munis_df")) {
 # análises e visualizações ------------------------------------------------
 
 
-comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "edu"), gerar_mapas = FALSE) {
+comparacao_uso_do_solo <- function(sigla_muni,
+                                   oport = c("empregos", "saude", "edu"),
+                                   mapas = FALSE,
+                                   relatorio = FALSE) {
+
+  nome_muni <- munis_df[abrev_muni == sigla_muni]$name_muni
+  message(paste0(nome_muni, ":"))
 
   # lê e prepara dados de uso do solo
 
@@ -99,6 +106,10 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
   dif_uso_do_solo <- data.table::rbindlist(dif_uso_do_solo)
   dif_uso_do_solo <- dif_uso_do_solo[!is.na(diferenca)]
 
+  # criar objeto com geometria pra usar mais a frente
+
+  geometria <- grid_2017[, .(id_hex, geometry)]
+
   # cria diretorios para salvar resultados
 
   diretorio_raiz <- paste0("./reports/distribuicao_uso_do_solo")
@@ -111,14 +122,12 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
   # * mapas comparativos ----------------------------------------------------
 
 
-  if (gerar_mapas) {
+  if (mapas) {
 
     borda_cidade <- geobr::read_municipality(
       munis_df[abrev_muni == sigla_muni]$code_muni,
       year = 2010
     )
-
-    geometria <- grid_2017[, .(id_hex, geometry)]
 
     bbox <- sf::st_bbox(sf::st_as_sf(geometria))
     asp_ratio <- (bbox$xmax - bbox$xmin) / (bbox$ymax - bbox$ymin)
@@ -168,7 +177,6 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
     # junta os gráficos 1-3 em uma mesma visualização
 
     nome_oport <- data.table::fifelse(oport_desejada == "edu", "educação", oport_desejada)
-    nome_muni <- munis_df[abrev_muni == sigla_muni]$name_muni
 
     title <- cowplot::ggdraw() +
       cowplot::draw_label(
@@ -201,10 +209,12 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
   }
 
 
-  # * hexagonos possivelmente problemáticos ---------------------------------
+  # * relatório -------------------------------------------------------------
 
 
-  if (oport_desejada == "empregos") {
+  if (relatorio & oport_desejada == "empregos") {
+
+    message("    Gerando relatório")
 
     # como os dados de 2019 são iguais aos de 2018, por enquanto, filtra o df de
     # diferença pra que ele tenha apenas as diferenças entre 2017 e 2018
@@ -220,15 +230,65 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
 
     # procura CNPJs que estejam nesses hexágonos em 2017 e em 2018
 
-    codigo_municipio <- munis_df[abrev_muni == sigla_muni]$code_muni
+    cnpjs_outliers_2017 <- acha_cnpjs_hexagonos(
+      sigla_muni,
+      outliers$id_hex,
+      geometria,
+      empregos_2017,
+      2017
+    )
 
-    boa_precisao <- c("4 Estrelas", "3 Estrelas", "street_number", "route")
+    cnpjs_outliers_2018 <- acha_cnpjs_hexagonos(
+      sigla_muni,
+      outliers$id_hex,
+      geometria,
+      empregos_2018,
+      2018
+    )
 
-    empregos_2017_geo <- empregos_2017[codemun == substr(codigo_municipio, 1, 6)]
-    empregos_2017_geo <- empregos_2017_geo[PrecisionDepth %chin% boa_precisao]
-    empregos_2017_geo <- sf::st_as_sf(empregos_2017_geo, coords = c("lon", "lat"))
+    return(cnpjs_outliers_2017)
 
-    return(empregos_2017_geo)
+    # une as duas bases a fins de comparação
+
+    if (nrow(outliers) > 0) {
+
+      cnpjs_outliers <- merge(
+        cnpjs_outliers_2017,
+        cnpjs_outliers_2018,
+        by = c("id_hex", "id_estab"),
+        all = TRUE,
+        suffixes = c("_2017", "_2018")
+      )
+
+    } else {
+
+      cnpjs_outliers <- data.table::data.table(NULL)
+
+    }
+
+    # gera e salva relatório
+
+    arquivo_outliers <- tempfile(pattern = "outliers", fileext = ".csv")
+    data.table::fwrite(outliers, arquivo_outliers)
+
+    arquivo_cnpjs <- tempfile(pattern = "cnpjs", fileext = ".csv")
+    suppressWarnings(data.table::fwrite(cnpjs_outliers, arquivo_cnpjs))
+
+    if (nrow(outliers) == 0) message("    Nenhum outlier foi encontrado")
+
+    arquivo_relatorio <- normalizePath(file.path(diretorio_muni, "empregos_outliers.html"))
+
+    rmarkdown::render(
+      "./R_daniel/esqueleto_relatorio.Rmd",
+      output_file = arquivo_relatorio,
+      params = list(
+        cidade = nome_muni,
+        maximo_empregos = maximo_empregos,
+        arquivo_outliers = arquivo_outliers,
+        arquivo_cnpjs = arquivo_cnpjs
+      ),
+      quiet = TRUE
+    )
 
   } else {
 
@@ -257,20 +317,100 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
 
   }
 
-  return(outliers_caso_1)
+}
+
+acha_cnpjs_hexagonos <- function(sigla_muni, hexagonos, geometria, empregos, ano) {
+
+  # acha código do município
+
+  codigo_municipio <- munis_df[abrev_muni == sigla_muni]$code_muni
+
+  # converte empregos em sf
+
+  boa_precisao <- c("4 Estrelas", "3 Estrelas", "street_number", "route")
+
+  empregos_geo <- empregos[codemun == substr(codigo_municipio, 1, 6)]
+  empregos_geo <- empregos_geo[PrecisionDepth %chin% boa_precisao]
+  empregos_geo <- sf::st_as_sf(empregos_geo, coords = c("lon", "lat"), crs = 4326)
+  empregos_geo <- sf::st_transform(empregos_geo, 5880)
+
+  # converte vetor de hexágonos como caracteres para sf
+
+  hexagonos <- data.table::data.table(id_hex = hexagonos)
+  hexagonos[geometria, on = "id_hex", geometry := i.geometry]
+  hexagonos <- sf::st_as_sf(hexagonos)
+  hexagonos <- sf::st_transform(hexagonos, 5880)
+
+  # filtra apenas empregos que estejam nos hexágonos
+
+  empregos_hex <- sf::st_intersects(empregos_geo, hexagonos, sparse = FALSE)
+
+  if (ncol(empregos_hex) > 0) {
+
+    # cria data.table com cnpjs em cada hexágono
+
+    cnpjs_hexagonos <- lapply(1:nrow(hexagonos), function(i) {
+
+      cnpjs_por_hex <- data.table::as.data.table(empregos_geo[empregos_hex[, i], ])
+
+     if (ano == 2017) {
+
+       cnpjs_por_hex <- cnpjs_por_hex[
+         ,
+         .(id_estab, total_corrigido, type_input_galileo)
+         ]
+
+     } else {
+
+       cnpjs_por_hex <- cnpjs_por_hex[
+         ,
+         .(id_estab, total_corrigido, type_input_galileo, razao_social)
+         ]
+
+     }
+
+      cnpjs_por_hex[, id_hex := hexagonos$id_hex[i]]
+
+    })
+    cnpjs_hexagonos <- data.table::rbindlist(cnpjs_hexagonos)
+    data.table::setcolorder(cnpjs_hexagonos, "id_hex")
+    data.table::setnames(
+      cnpjs_hexagonos,
+      c("total_corrigido", "type_input_galileo"),
+      c("total", "input"),
+      skip_absent = TRUE
+    )
+
+  } else {
+
+    # cria data.table vazio
+
+    cnpjs_hexagonos <- data.table::data.table(NULL)
+
+  }
+
+  return(cnpjs_hexagonos)
 
 }
 
-gera_mapa_comparacoes <- function(n_cores) {
+gera_mapas <- function(n_cores) {
 
   future::plan(future::multisession, workers = n_cores)
 
   invisible(furrr::future_map(munis_df$abrev_muni, function(i) {
-    comparacao_uso_do_solo(i, "empregos", TRUE)
-    comparacao_uso_do_solo(i, "saude", TRUE)
-    comparacao_uso_do_solo(i, "edu", TRUE)
+    comparacao_uso_do_solo(i, "empregos", mapas = TRUE, relatorio = FALSE)
+    comparacao_uso_do_solo(i, "saude", mapas = TRUE, relatorio = FALSE)
+    comparacao_uso_do_solo(i, "edu", mapas = TRUE, relatorio = FALSE)
   }))
 
   future::plan(future::sequential)
+
+}
+
+gera_relatorios <- function() {
+
+  invisible(lapply(munis_df$abrev_muni, function(i) {
+    comparacao_uso_do_solo(i, "empregos", mapas = FALSE, relatorio = TRUE)
+  }))
 
 }

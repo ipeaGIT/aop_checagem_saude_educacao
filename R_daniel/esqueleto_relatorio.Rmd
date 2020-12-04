@@ -1,0 +1,64 @@
+---
+output: html_document
+params:
+  cidade: Rio de Janeiro
+  maximo_empregos: 1000
+  arquivo_outliers: arquivo_outliers.csv
+  arquivo_cnpjs: arquivo_cnpjs.csv
+---
+
+---
+title: Outliers da distribuição de empregos - `r params$cidade`
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+```
+
+Definição de outliers: hexágonos cuja diferença entre um ano e outro superar 1/3 do máximo de empregos em um hexágono na cidade.
+
+No caso de `r params$cidade`:
+
+- Máximo de empregos em um hexágono: `r as.integer(params$maximo_empregos)`
+
+- Valor acima do qual hexágono é considerado outlier: `r as.integer(params$maximo_empregos / 3)`
+
+# Outliers
+
+```{r}
+outliers <- data.table::fread(params$arquivo_outliers)
+
+knitr::kable(outliers, format = "html") %>% 
+  kableExtra::kable_styling(
+    full_width = FALSE,
+    position = "left"
+  )
+```
+
+# CNPJs por outlier
+
+```{r}
+suppressWarnings(cnpjs <- data.table::fread(params$arquivo_cnpjs))
+
+if (nrow(cnpjs) == 0) {
+  
+  cnpjs <- data.table::data.table(
+    id_hex = character(), 
+    id_estab = numeric(),
+    total_2017 = numeric(),
+    input_2017 = character(),
+    total_2018 = numeric(),
+    input_2018 = character(),
+    razao_social = character()
+  )
+  
+}
+
+linhas_com_NA <- which(is.na(cnpjs$total_2017) | is.na(cnpjs$total_2018))
+
+knitr::kable(cnpjs, format = "html") %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "left") %>% 
+  kableExtra::row_spec(linhas_com_NA, bold = FALSE, color = "white", background = "#bb6868")
+  
+```
