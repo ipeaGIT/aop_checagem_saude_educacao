@@ -1,105 +1,132 @@
 library(ggplot2)
+library(data.table)
 
-# setup
 
-munis_df <- data.table::setDT(tibble::tribble(
-  ~code_muni, ~abrev_muni, ~name_muni,        ~abrev_estado, ~modo_2017, ~modo_2018, ~modo_2019, ~modo_2020,
-  2304400,    "for",       "Fortaleza",       "CE",          "todos",    "todos",    "todos",    "todos",
-  3550308,    "spo",       "Sao Paulo",       "SP",          "todos",    "todos",    "todos",    "todos",
-  3304557,    "rio",       "Rio de Janeiro",  "RJ",          "ativo",    "todos",    "todos",    "todos",
-  4106902,    "cur",       "Curitiba",        "PR",          "todos",    "todos",    "todos",    "todos",
-  4314902,    "poa",       "Porto Alegre",    "RS",          "todos",    "todos",    "todos",    "todos",
-  3106200,    "bho",       "Belo Horizonte",  "MG",          "todos",    "todos",    "todos",    "todos",
-  5300108,    "bsb",       "Brasilia",        "DF",          "ativo",    "ativo",    "ativo",    "ativo",
-  2927408,    "sal",       "Salvador",        "BA",          "ativo",    "ativo",    "ativo",    "ativo",
-  1302603,    "man",       "Manaus",          "AM",          "ativo",    "ativo",    "ativo",    "ativo",
-  2611606,    "rec",       "Recife",          "PE",          "ativo",    "ativo",    "todos",    "todos",
-  5208707,    "goi",       "Goiania",         "GO",          "ativo",    "ativo",    "todos",    "ativo",
-  1501402,    "bel",       "Belem",           "PA",          "ativo",    "ativo",    "ativo",    "ativo",
-  3518800,    "gua",       "Guarulhos",       "SP",          "ativo",    "ativo",    "ativo",    "ativo",
-  3509502,    "cam",       "Campinas",        "SP",          "todos",    "todos",    "todos",    "ativo",
-  2111300,    "slz",       "Sao Luis",        "MA",          "ativo",    "ativo",    "ativo",    "ativo",
-  3304904,    "sgo",       "Sao Goncalo",     "RJ",          "ativo",    "ativo",    "ativo",    "ativo",
-  2704302,    "mac",       "Maceio",          "AL",          "ativo",    "ativo",    "ativo",    "ativo",
-  3301702,    "duq",       "Duque de Caxias", "RJ",          "ativo",    "ativo",    "ativo",    "ativo",
-  5002704,    "cgr",       "Campo Grande",    "MS",          "ativo",    "ativo",    "ativo",    "ativo",
-  2408102,    "nat",       "Natal",           "RN",          "ativo",    "ativo",    "ativo",    "ativo"
-))
+# setup -------------------------------------------------------------------
 
-# análises e visualizações
+
+if (!exists("empregos_2017")) {
+
+  empregos_2017 <- readr::read_rds(
+    "../../data/acesso_oport/rais/2017/rais_2017_etapa8.rds"
+  )
+  data.table::setDT(empregos_2017)
+
+}
+
+if (!exists("empregos_2018")) {
+
+  empregos_2018 <- readr::read_rds(
+    "../../data/acesso_oport/rais/2018/rais_2018_etapa10.rds"
+  )
+  data.table::setDT(empregos_2018)
+
+}
+
+if (!exists("munis_df")) {
+
+  munis_df <- data.table::setDT(tibble::tribble(
+    ~code_muni, ~abrev_muni, ~name_muni,        ~abrev_estado, ~modo_2017, ~modo_2018, ~modo_2019, ~modo_2020,
+    2304400,    "for",       "Fortaleza",       "CE",          "todos",    "todos",    "todos",    "todos",
+    3550308,    "spo",       "Sao Paulo",       "SP",          "todos",    "todos",    "todos",    "todos",
+    3304557,    "rio",       "Rio de Janeiro",  "RJ",          "ativo",    "todos",    "todos",    "todos",
+    4106902,    "cur",       "Curitiba",        "PR",          "todos",    "todos",    "todos",    "todos",
+    4314902,    "poa",       "Porto Alegre",    "RS",          "todos",    "todos",    "todos",    "todos",
+    3106200,    "bho",       "Belo Horizonte",  "MG",          "todos",    "todos",    "todos",    "todos",
+    5300108,    "bsb",       "Brasilia",        "DF",          "ativo",    "ativo",    "ativo",    "ativo",
+    2927408,    "sal",       "Salvador",        "BA",          "ativo",    "ativo",    "ativo",    "ativo",
+    1302603,    "man",       "Manaus",          "AM",          "ativo",    "ativo",    "ativo",    "ativo",
+    2611606,    "rec",       "Recife",          "PE",          "ativo",    "ativo",    "todos",    "todos",
+    5208707,    "goi",       "Goiania",         "GO",          "ativo",    "ativo",    "todos",    "ativo",
+    1501402,    "bel",       "Belem",           "PA",          "ativo",    "ativo",    "ativo",    "ativo",
+    3518800,    "gua",       "Guarulhos",       "SP",          "ativo",    "ativo",    "ativo",    "ativo",
+    3509502,    "cam",       "Campinas",        "SP",          "todos",    "todos",    "todos",    "ativo",
+    2111300,    "slz",       "Sao Luis",        "MA",          "ativo",    "ativo",    "ativo",    "ativo",
+    3304904,    "sgo",       "Sao Goncalo",     "RJ",          "ativo",    "ativo",    "ativo",    "ativo",
+    2704302,    "mac",       "Maceio",          "AL",          "ativo",    "ativo",    "ativo",    "ativo",
+    3301702,    "duq",       "Duque de Caxias", "RJ",          "ativo",    "ativo",    "ativo",    "ativo",
+    5002704,    "cgr",       "Campo Grande",    "MS",          "ativo",    "ativo",    "ativo",    "ativo",
+    2408102,    "nat",       "Natal",           "RN",          "ativo",    "ativo",    "ativo",    "ativo"
+  ))
+
+}
+
+
+# análises e visualizações ------------------------------------------------
+
 
 comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "edu"), gerar_mapas = FALSE) {
-  
+
   # lê e prepara dados de uso do solo
-  
+
   grid_2017 <- readr::read_rds(sprintf("../../data/acesso_oport/hex_agregados/2017/hex_agregado_%s_09_2017.rds", sigla_muni))
   data.table::setDT(grid_2017)
   grid_2018 <- readr::read_rds(sprintf("../../data/acesso_oport/hex_agregados/2018/hex_agregado_%s_09_2018.rds", sigla_muni))
   data.table::setDT(grid_2018)
   grid_2019 <- readr::read_rds(sprintf("../../data/acesso_oport/hex_agregados/2019/hex_agregado_%s_09_2019.rds", sigla_muni))
   data.table::setDT(grid_2019)
-  
+
   uso_do_solo <- rbind(grid_2017, grid_2018, grid_2019, idcol = "ano")
   uso_do_solo[, ano := ano + 2016]
-  
+
   # prepara dados segundo tipo de oportunidade desejada
-  
+
   oport_desejada <- oport[1]
-  
+
   variavel_desejada <- paste0(oport_desejada, "_total")
   uso_do_solo <- uso_do_solo[, .(ano, id_hex, oport = get(variavel_desejada), geometry)]
-  
+
   # calcula diferença entre cada combinação de 2 anos distintos
-  
+
   comb_anos <- data.table::as.data.table(utils::combn(2017:2019, 2))
-  
+
   dif_uso_do_solo <- lapply(
-    comb_anos, 
+    comb_anos,
     function(anos) {
-      
+
       ano_max <- as.character(max(anos))
       ano_min <- as.character(min(anos))
-      
+
       diferenca <- uso_do_solo[ano %in% anos]
       diferenca <- data.table::dcast(diferenca, id_hex ~ ano, value.var = "oport")
       diferenca[, diferenca := get(ano_max) - get(ano_min)]
       diferenca[, id_anos := paste0(ano_min, " -> ", ano_max)]
       diferenca[, (ano_max) := NULL]
       diferenca[, (ano_min) := NULL]
-      
+
     }
   )
   dif_uso_do_solo <- data.table::rbindlist(dif_uso_do_solo)
   dif_uso_do_solo <- dif_uso_do_solo[!is.na(diferenca)]
-  
+
   # cria diretorios para salvar resultados
-  
+
   diretorio_raiz <- paste0("./reports/distribuicao_uso_do_solo")
   if (!dir.exists(diretorio_raiz)) dir.create(diretorio_raiz)
-  
+
   diretorio_muni <- paste0(diretorio_raiz, "/", sigla_muni)
   if (!dir.exists(diretorio_muni)) dir.create(diretorio_muni)
-  
-  
+
+
   # * mapas comparativos ----------------------------------------------------
-  
-  
+
+
   if (gerar_mapas) {
-    
+
     borda_cidade <- geobr::read_municipality(
       munis_df[abrev_muni == sigla_muni]$code_muni,
       year = 2010
     )
-    
+
     geometria <- grid_2017[, .(id_hex, geometry)]
-    
+
     bbox <- sf::st_bbox(sf::st_as_sf(geometria))
     asp_ratio <- (bbox$xmax - bbox$xmin) / (bbox$ymax - bbox$ymin)
-    
+
     espacamento <- 6.25 - 5 * asp_ratio
-    
+
     # grafico 1: mapa da distribuição das atividades por ano
-    
+
     p1 <- ggplot() +
       geom_sf(data = borda_cidade, fill = "gray90") +
       geom_sf(data = sf::st_as_sf(uso_do_solo), aes(fill = oport), color = NA) +
@@ -111,20 +138,20 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
         axis.text.y = element_blank(),
         panel.spacing.x = unit(ifelse(espacamento <= 0.5, 0.5, espacamento), "inches")
       )
-    
+
     # grafico 2: boxplot da distribuição da diferença entre cada ano
-    
+
     p2 <- ggplot() +
       geom_boxplot(data = dif_uso_do_solo, aes(diferenca)) +
       facet_wrap(~ id_anos, nrow = 1) +
       scale_x_continuous(name = "diferença") +
       theme_minimal() +
       theme(axis.text.y = element_blank(), panel.spacing.x = unit(0.5, "inches"))
-    
+
     # grafico 3: mapa da distribuição da diferença entre cada ano
-    
+
     dif_uso_do_solo[geometria, on = "id_hex", geometry := i.geometry]
-    
+
     p3 <- ggplot() +
       geom_sf(data = borda_cidade, fill = "white") +
       geom_sf(data = sf::st_as_sf(dif_uso_do_solo), aes(fill = diferenca), color = NA) +
@@ -137,12 +164,12 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
         axis.text.y = element_blank(),
         panel.spacing.x = unit(ifelse(espacamento <= 0.5, 0.5, espacamento), "inches")
       )
-    
+
     # junta os gráficos 1-3 em uma mesma visualização
-    
+
     nome_oport <- data.table::fifelse(oport_desejada == "edu", "educação", oport_desejada)
     nome_muni <- munis_df[abrev_muni == sigla_muni]$name_muni
-    
+
     title <- cowplot::ggdraw() +
       cowplot::draw_label(
         paste0("Distribuição de oportunidades de ", nome_oport, " - ", nome_muni),
@@ -151,15 +178,15 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
         hjust = 0,
         vjust = 1
       )
-    
+
     p2w <- cowplot::plot_grid(p2, ncol = 2, rel_widths = c(1, 0.08))
-    
+
     p <- cowplot::plot_grid(title, p1, p3, p2w, rel_heights = c(0.06, 1, 1, 0.5), ncol = 1)
-    
+
     # salva visualizações
-    
+
     arquivo_distribuicao <- paste0(diretorio_muni, "/", oport_desejada, ".png")
-    
+
     ggsave(
       arquivo_distribuicao,
       plot = p,
@@ -168,33 +195,80 @@ comparacao_uso_do_solo <- function(sigla_muni, oport = c("empregos", "saude", "e
       height = 5.8,
       dpi = 150
     )
-    
+
   }
-  
-  
+
+
   # * hexagonos possivelmente problemáticos ---------------------------------
-  
-  
+
+
   if (oport_desejada == "empregos") {
-    
-    
-    
+
+    # como os dados de 2019 são iguais aos de 2018, por enquanto, filtra o df de
+    # diferença pra que ele tenha apenas as diferenças entre 2017 e 2018
+
+    dif_uso_do_solo <- dif_uso_do_solo[id_anos == "2017 -> 2018"]
+
+    # definição de outlier (arbitrária): hexágonos cuja diferença supere 1/3 do
+    # máximo de empregos em apenas um hexágono na cidade
+
+    maximo_empregos <- max(uso_do_solo$oport)
+
+    outliers <- dif_uso_do_solo[diferenca > maximo_empregos / 3]
+
+    # procura CNPJs que estejam nesses hexágonos em 2017 e em 2018
+
+    codigo_municipio <- munis_df[abrev_muni == sigla_muni]$code_muni
+
+    boa_precisao <- c("4 Estrelas", "3 Estrelas", "street_number", "route")
+
+    empregos_2017_geo <- empregos_2017[codemun == substr(codigo_municipio, 1, 6)]
+    empregos_2017_geo <- empregos_2017_geo[PrecisionDepth %chin% boa_precisao]
+    empregos_2017_geo <- sf::st_as_sf(empregos_2017_geo, coords = c("lon", "lat"))
+
+    return(empregos_2017_geo)
+
+  } else {
+
+    # no caso de saúde e educação, hexágonos podem ser considerados outliers por
+    # duas razões diferentes (arbitrárias):
+    # primeira: caso nele 2 ou mais estabelecimentos tenham surgido/desaparecido
+    # segundo:  caso nele tenha havido alguma alteração entre 2017 e 2018 e
+    # depois em 2018 e 2019, no "sentido inverso" (e.g. tenha surgido um
+    # estabelecimento de saúde de 2017 e 2018 e desaparecido também um em 2018 e
+    # 2019)
+
+    # checando o primeiro caso
+
+    outliers_caso_1 <- dif_uso_do_solo[diferenca >= 2]
+
+    # checando o segundo caso
+
+    outliers_caso_2 <- data.table::dcast(
+      dif_uso_do_solo,
+      id_hex ~ id_anos,
+      value.var = "diferenca"
+    )
+    outliers_caso_2 <- outliers_caso_2[
+      (`2017 -> 2018` < 0 & `2018 -> 2019` > 0) | (`2017 -> 2018` > 0 & `2018 -> 2019` < 0)
+    ]
+
   }
-  
-  return(uso_do_solo[])
-  
+
+  return(outliers_caso_1)
+
 }
 
 gera_mapa_comparacoes <- function(n_cores) {
-  
+
   future::plan(future::multisession, workers = n_cores)
-  
+
   invisible(furrr::future_map(munis_df$abrev_muni, function(i) {
     comparacao_uso_do_solo(i, "empregos")
     comparacao_uso_do_solo(i, "saude")
     comparacao_uso_do_solo(i, "edu")
   }))
-  
+
   future::plan(future::sequential)
-  
+
 }
