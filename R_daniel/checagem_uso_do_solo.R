@@ -2,6 +2,8 @@ library(ggplot2)
 library(data.table)
 library(dplyr)
 
+options(future.globals.maxSize = 850 * 1024 ^ 2)
+
 
 # setup -------------------------------------------------------------------
 
@@ -9,7 +11,7 @@ library(dplyr)
 if (!exists("empregos_2017")) {
 
   empregos_2017 <- readr::read_rds(
-    "../../data/acesso_oport/rais/2017/rais_2017_etapa8.rds"
+    "../../data/acesso_oport/rais/2017/rais_2017_etapa9.rds"
   )
   data.table::setDT(empregos_2017)
 
@@ -228,27 +230,27 @@ comparacao_uso_do_solo <- function(sigla_muni,
 
     outliers <- dif_uso_do_solo[diferenca > maximo_empregos / 3]
 
-    # procura CNPJs que estejam nesses hexágonos em 2017 e em 2018
-
-    cnpjs_outliers_2017 <- acha_cnpjs_hexagonos(
-      sigla_muni,
-      outliers$id_hex,
-      geometria,
-      empregos_2017,
-      2017
-    )
-
-    cnpjs_outliers_2018 <- acha_cnpjs_hexagonos(
-      sigla_muni,
-      outliers$id_hex,
-      geometria,
-      empregos_2018,
-      2018
-    )
-
-    # une as duas bases a fins de comparação
-
     if (nrow(outliers) > 0) {
+
+      # procura CNPJs que estejam nesses hexágonos em 2017 e em 2018
+
+      cnpjs_outliers_2017 <- acha_cnpjs_hexagonos(
+        sigla_muni,
+        outliers$id_hex,
+        geometria,
+        empregos_2017,
+        2017
+      )
+
+      cnpjs_outliers_2018 <- acha_cnpjs_hexagonos(
+        sigla_muni,
+        outliers$id_hex,
+        geometria,
+        empregos_2018,
+        2018
+      )
+
+      # une as duas bases a fins de comparação
 
       cnpjs_outliers <- merge(
         cnpjs_outliers_2017,
