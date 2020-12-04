@@ -246,8 +246,6 @@ comparacao_uso_do_solo <- function(sigla_muni,
       2018
     )
 
-    return(cnpjs_outliers_2017)
-
     # une as duas bases a fins de comparação
 
     if (nrow(outliers) > 0) {
@@ -266,6 +264,53 @@ comparacao_uso_do_solo <- function(sigla_muni,
 
     }
 
+    # procura estabelecimentos que em 2018 tenham o input = "rais_2017" mas não
+    # aparecem naquele hexágono em 2017 e acha o hexágonos em que eles estavam
+
+    if (nrow(cnpjs_outliers) == 0) {
+
+      # se não há outliers, retorna um data.table nulo
+
+      relacao_hexagonos <- data.table::data.table(NULL)
+
+    } else {
+
+      estab_estranhos <- cnpjs_outliers[input_2018 == "rais_2017" & is.na(total_2017)]
+
+      if (nrow(estab_estranhos) == 0) {
+
+        # se não há estabelecimentos estranhos, retorna um data.table nulo
+
+        relacao_hexagonos <- data.table::data.table(NULL)
+
+      } else {
+
+        # checa em que hexágonos esses estabelecimentos estavam em 2017
+
+        empregos_2017_filtrados <- empregos_2017[id_estab %chin% estab_estranhos$id_estab]
+
+        hexagonos_2017 <- acha_cnpjs_hexagonos(
+          sigla_muni,
+          geometria$id_hex,
+          geometria,
+          empregos_2017_filtrados,
+          2017
+        )
+
+        # cria data.table consolidando diferenças
+
+        relacao_hexagonos <- data.table::data.table(
+          id_estab = estab_estranhos$id_estab,
+          id_hex_2018 = estab_estranhos$id_hex
+        )
+
+        relacao_hexagonos[hexagonos_2017, on = "id_estab", id_hex_2017 := id_hex]
+
+      }
+
+    }
+
+
     # gera e salva relatório
 
     arquivo_outliers <- tempfile(pattern = "outliers", fileext = ".csv")
@@ -273,6 +318,9 @@ comparacao_uso_do_solo <- function(sigla_muni,
 
     arquivo_cnpjs <- tempfile(pattern = "cnpjs", fileext = ".csv")
     suppressWarnings(data.table::fwrite(cnpjs_outliers, arquivo_cnpjs))
+
+    arquivo_relacao <- tempfile(pattern = "relacao", fileext = ".csv")
+    suppressWarnings(data.table::fwrite(relacao_hexagonos, arquivo_relacao))
 
     if (nrow(outliers) == 0) message("    Nenhum outlier foi encontrado")
 
@@ -285,7 +333,8 @@ comparacao_uso_do_solo <- function(sigla_muni,
         cidade = nome_muni,
         maximo_empregos = maximo_empregos,
         arquivo_outliers = arquivo_outliers,
-        arquivo_cnpjs = arquivo_cnpjs
+        arquivo_cnpjs = arquivo_cnpjs,
+        arquivo_relacao = arquivo_relacao
       ),
       quiet = TRUE
     )

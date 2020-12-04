@@ -5,6 +5,7 @@ params:
   maximo_empregos: 1000
   arquivo_outliers: arquivo_outliers.csv
   arquivo_cnpjs: arquivo_cnpjs.csv
+  arquivo_relacao: arquivo_relacao.csv
 ---
 
 ---
@@ -39,13 +40,15 @@ knitr::kable(outliers, format = "html") %>%
 # CNPJs por outlier
 
 ```{r}
-suppressWarnings(cnpjs <- data.table::fread(params$arquivo_cnpjs))
+suppressWarnings(
+  cnpjs <- data.table::fread(params$arquivo_cnpjs, colClasses = c(id_estab = "character"))
+)
 
 if (nrow(cnpjs) == 0) {
   
   cnpjs <- data.table::data.table(
     id_hex = character(), 
-    id_estab = numeric(),
+    id_estab = character(),
     total_2017 = numeric(),
     input_2017 = character(),
     total_2018 = numeric(),
@@ -59,6 +62,33 @@ linhas_com_NA <- which(is.na(cnpjs$total_2017) | is.na(cnpjs$total_2018))
 
 knitr::kable(cnpjs, format = "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "left") %>% 
-  kableExtra::row_spec(linhas_com_NA, bold = FALSE, color = "white", background = "#bb6868")
+  kableExtra::row_spec(
+    linhas_com_NA, 
+    bold = FALSE, 
+    color = "white", 
+    background = "#bb6868"
+  )
+  
+```
+
+# Estabelecimentos em hexágonos diferentes
+
+```{r}
+suppressWarnings(
+  relacao <- data.table::fread(params$arquivo_relacao, colClasses = c(id_estab = "character"))
+)
+
+if (nrow(relacao) == 0) {
+  
+  relacao <- data.table::data.table(
+    id_estab = character(), 
+    id_hex_2018 = character(),
+    id_hex_2017 = character()
+  )
+  
+}
+
+knitr::kable(relacao, format = "html") %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "left")
   
 ```
