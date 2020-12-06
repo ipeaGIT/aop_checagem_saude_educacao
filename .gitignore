@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 R_daniel/esqueleto_relatorio.html
+data/*
+data-raw/*
