@@ -26,6 +26,15 @@ if (!exists("empregos_2018")) {
 
 }
 
+if (!exists("empregos_2019")) {
+
+  empregos_2019 <- readr::read_rds(
+    "../../data/acesso_oport/rais/2019/rais_2019_corrigido_geocoded_censoEscolar.rds"
+  )
+  data.table::setDT(empregos_2019)
+
+}
+
 if (!exists("munis_df")) {
 
   munis_df <- data.table::setDT(tibble::tribble(
@@ -50,6 +59,34 @@ if (!exists("munis_df")) {
     3301702,    "duq",       "Duque de Caxias", "RJ",          "ativo",    "ativo",    "ativo",    "ativo",
     5002704,    "cgr",       "Campo Grande",    "MS",          "ativo",    "ativo",    "ativo",    "ativo",
     2408102,    "nat",       "Natal",           "RN",          "ativo",    "ativo",    "ativo",    "ativo"
+  ))
+
+}
+
+if (!exists("limite_diferenca")) {
+
+  limite_diferenca <- data.table::setDT(tibble::tribble(
+    ~abrev_muni, ~limite,
+    "for",       1250,
+    "spo",       2000,
+    "rio",       1800,
+    "cur",       1000,
+    "poa",       1250,
+    "bho",       1250,
+    "bsb",       2500,
+    "sal",       1000,
+    "man",       750,
+    "rec",       1500,
+    "goi",       1100,
+    "bel",       500,
+    "gua",       750,
+    "cam",       1500,
+    "slz",       1250,
+    "sgo",       250,
+    "mac",       450,
+    "duq",       1500,
+    "cgr",       250,
+    "nat",       600
   ))
 
 }
@@ -218,113 +255,153 @@ comparacao_uso_do_solo <- function(sigla_muni,
 
     message("    Gerando relatório")
 
-    # como os dados de 2019 são iguais aos de 2018, por enquanto, filtra o df de
-    # diferença pra que ele tenha apenas as diferenças entre 2017 e 2018
+    # cria diretório temporário para salvar data.tables e gerar relatório
 
-    dif_uso_do_solo <- dif_uso_do_solo[id_anos == "2017 -> 2018"]
+    diretorio_temp <- file.path(tempdir(), paste0("dados_", sigla_muni))
+    unlink(diretorio_temp, recursive = TRUE)
+    dir.create(diretorio_temp)
 
-    # definição de outlier (arbitrária): hexágonos cuja diferença supere 1/3 do
-    # máximo de empregos em apenas um hexágono na cidade
+    # outlier (arbitrária) são hexágonos que superam o limite de diferença entre
+    # dois anos consecutivos em uma cidade
 
-    maximo_empregos <- max(uso_do_solo$oport)
+    limite_diferenca <- limite_diferenca[abrev_muni == sigla_muni]$limite
 
-    outliers <- dif_uso_do_solo[diferenca > maximo_empregos / 3]
+    outliers <- dif_uso_do_solo[abs(diferenca) > limite_diferenca]
 
-    if (nrow(outliers) > 0) {
+    if (nrow(outliers) == 0) message("    Nenhum outlier foi encontrado")
 
-      # procura CNPJs que estejam nesses hexágonos em 2017 e em 2018
+    # salva outliers no diretório temporário
 
-      cnpjs_outliers_2017 <- acha_cnpjs_hexagonos(
-        sigla_muni,
-        outliers$id_hex,
-        geometria,
-        empregos_2017,
-        2017
-      )
+    arquivo_outliers <- file.path(diretorio_temp, "outliers.csv")
+    data.table::fwrite(outliers, arquivo_outliers)
 
-      cnpjs_outliers_2018 <- acha_cnpjs_hexagonos(
-        sigla_muni,
-        outliers$id_hex,
-        geometria,
-        empregos_2018,
-        2018
-      )
+    # para cada par de anos encontra outliers e os analisa, caso existam
 
-      # une as duas bases a fins de comparação
+    for (par_anos in comb_anos) {
 
-      cnpjs_outliers <- merge(
-        cnpjs_outliers_2017,
-        cnpjs_outliers_2018,
-        by = c("id_hex", "id_estab"),
-        all = TRUE,
-        suffixes = c("_2017", "_2018")
-      )
+      id_string <- paste0(par_anos[1], " -> ", par_anos[2])
 
-    } else {
+      outliers_par <- outliers[id_anos == id_string]
 
-      cnpjs_outliers <- data.table::data.table(NULL)
+      if (nrow(outliers_par) > 0) {
 
-    }
+        empregos_min <- paste0("empregos_", par_anos[1])
 
-    # procura estabelecimentos que em 2018 tenham o input = "rais_2017" mas não
-    # aparecem naquele hexágono em 2017 e acha o hexágonos em que eles estavam
+        # procura CNPJs que estejam nesses hexágonos em cada ano
 
-    if (nrow(cnpjs_outliers) == 0) {
+        cnpjs_outliers_min <- acha_cnpjs_hexagonos(
+          sigla_muni,
+          outliers_par$id_hex,
+          geometria,
+          get(paste0("empregos_", par_anos[1])),
+          par_anos[1]
+        )
 
-      # se não há outliers, retorna um data.table nulo
+        cnpjs_outliers_max <- acha_cnpjs_hexagonos(
+          sigla_muni,
+          outliers_par$id_hex,
+          geometria,
+          get(paste0("empregos_", par_anos[2])),
+          par_anos[2]
+        )
 
-      relacao_hexagonos <- data.table::data.table(NULL)
+        # une as duas bases a fins de comparação
 
-    } else {
-
-      estab_estranhos <- cnpjs_outliers[input_2018 == "rais_2017" & is.na(total_2017)]
-
-      if (nrow(estab_estranhos) == 0) {
-
-        # se não há estabelecimentos estranhos, retorna um data.table nulo
-
-        relacao_hexagonos <- data.table::data.table(NULL)
+        cnpjs_outliers <- merge(
+          cnpjs_outliers_min,
+          cnpjs_outliers_max,
+          by = c("id_hex", "id_estab"),
+          all = TRUE,
+          suffixes = paste0("_", par_anos)
+        )
 
       } else {
 
-        # checa em que hexágonos esses estabelecimentos estavam em 2017
+        cnpjs_outliers <- data.table::data.table(NULL)
 
-        empregos_2017_filtrados <- empregos_2017[id_estab %chin% estab_estranhos$id_estab]
+      }
 
-        hexagonos_2017 <- acha_cnpjs_hexagonos(
-          sigla_muni,
-          geometria$id_hex,
-          geometria,
-          empregos_2017_filtrados,
-          2017
+      # salva cnps_outliers no diretório temporário
+
+      arquivo_cnpjs <- file.path(
+        diretorio_temp,
+        paste0("cnpjs_", par_anos[1], "_", par_anos[2], ".csv")
+      )
+      suppressWarnings(data.table::fwrite(cnpjs_outliers, arquivo_cnpjs))
+
+      if (par_anos[1] == 2017) {
+
+        # procura estabelecimentos que em 2018/2019 tenham o input = "rais_2017"
+        # mas não aparecem naquele hexágono em 2017, e acha o hexágonos em que
+        # eles estavam
+
+        if (nrow(cnpjs_outliers) == 0) {
+
+          # se não há outliers, retorna um data.table nulo
+
+          relacao_hexagonos <- data.table::data.table(NULL)
+
+        } else {
+
+          nome_coluna <- paste0("input_", par_anos[2])
+          estab_estranhos <- cnpjs_outliers[get(nome_coluna) == "rais_2017" & is.na(total_2017)]
+
+          # lida com o caso do estabelecimento existir na rais em 2017, mas em
+          # outro municipio
+
+          empregos_2017_filtrados <- empregos_2017[id_estab %chin% estab_estranhos$id_estab]
+          codigo_municipio <- munis_df[abrev_muni == sigla_muni]$code_muni
+          empregos_2017_filtrados <- empregos_2017_filtrados[codemun == codigo_municipio]
+
+          if (nrow(estab_estranhos) == 0 | nrow(empregos_2017_filtrados) == 0) {
+
+            # se não há estabelecimentos estranhos, retorna um data.table nulo
+
+            relacao_hexagonos <- data.table::data.table(NULL)
+
+          } else {
+
+            # checa em que hexágonos esses estabelecimentos estavam em 2017
+
+            hexagonos_2017 <- acha_cnpjs_hexagonos(
+              sigla_muni,
+              geometria$id_hex,
+              geometria,
+              empregos_2017_filtrados,
+              2017
+            )
+
+            # cria data.table consolidando diferenças
+
+            relacao_hexagonos <- data.table::data.table(
+              id_estab = estab_estranhos$id_estab,
+              id_hex_max = estab_estranhos$id_hex
+            )
+
+            relacao_hexagonos[hexagonos_2017, on = "id_estab", id_hex_2017 := id_hex]
+            data.table::setnames(
+              relacao_hexagonos,
+              "id_hex_max",
+              paste0("id_hex_", par_anos[2])
+            )
+
+          }
+
+        }
+
+        # salva relacao_hexagonos no diretório temporário
+
+        arquivo_relacao <- file.path(
+          diretorio_temp,
+          paste0("relacao_2017_", par_anos[2], ".csv")
         )
-
-        # cria data.table consolidando diferenças
-
-        relacao_hexagonos <- data.table::data.table(
-          id_estab = estab_estranhos$id_estab,
-          id_hex_2018 = estab_estranhos$id_hex
-        )
-
-        relacao_hexagonos[hexagonos_2017, on = "id_estab", id_hex_2017 := id_hex]
+        suppressWarnings(data.table::fwrite(relacao_hexagonos, arquivo_relacao))
 
       }
 
     }
 
-
     # gera e salva relatório
-
-    arquivo_outliers <- tempfile(pattern = "outliers", fileext = ".csv")
-    data.table::fwrite(outliers, arquivo_outliers)
-
-    arquivo_cnpjs <- tempfile(pattern = "cnpjs", fileext = ".csv")
-    suppressWarnings(data.table::fwrite(cnpjs_outliers, arquivo_cnpjs))
-
-    arquivo_relacao <- tempfile(pattern = "relacao", fileext = ".csv")
-    suppressWarnings(data.table::fwrite(relacao_hexagonos, arquivo_relacao))
-
-    if (nrow(outliers) == 0) message("    Nenhum outlier foi encontrado")
 
     arquivo_relatorio <- normalizePath(file.path(diretorio_muni, "empregos_outliers.html"))
 
@@ -333,38 +410,11 @@ comparacao_uso_do_solo <- function(sigla_muni,
       output_file = arquivo_relatorio,
       params = list(
         cidade = nome_muni,
-        maximo_empregos = maximo_empregos,
-        arquivo_outliers = arquivo_outliers,
-        arquivo_cnpjs = arquivo_cnpjs,
-        arquivo_relacao = arquivo_relacao
+        limite = limite_diferenca,
+        diretorio = diretorio_temp
       ),
       quiet = TRUE
     )
-
-  } else {
-
-    # no caso de saúde e educação, hexágonos podem ser considerados outliers por
-    # duas razões diferentes (arbitrárias):
-    # primeira: caso nele 2 ou mais estabelecimentos tenham surgido/desaparecido
-    # segundo:  caso nele tenha havido alguma alteração entre 2017 e 2018 e
-    # depois em 2018 e 2019, no "sentido inverso" (e.g. tenha surgido um
-    # estabelecimento de saúde de 2017 e 2018 e desaparecido também um em 2018 e
-    # 2019)
-
-    # checando o primeiro caso
-
-    outliers_caso_1 <- dif_uso_do_solo[diferenca >= 2]
-
-    # checando o segundo caso
-
-    outliers_caso_2 <- data.table::dcast(
-      dif_uso_do_solo,
-      id_hex ~ id_anos,
-      value.var = "diferenca"
-    )
-    outliers_caso_2 <- outliers_caso_2[
-      (`2017 -> 2018` < 0 & `2018 -> 2019` > 0) | (`2017 -> 2018` > 0 & `2018 -> 2019` < 0)
-    ]
 
   }
 
@@ -404,7 +454,7 @@ acha_cnpjs_hexagonos <- function(sigla_muni, hexagonos, geometria, empregos, ano
 
       cnpjs_por_hex <- data.table::as.data.table(empregos_geo[empregos_hex[, i], ])
 
-     if (ano == 2017) {
+     if (ano %in% c(2017, 2019)) {
 
        cnpjs_por_hex <- cnpjs_por_hex[
          ,

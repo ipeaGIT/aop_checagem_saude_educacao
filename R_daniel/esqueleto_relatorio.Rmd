@@ -1,14 +1,11 @@
 ---
-output: html_document
+output: 
+  html_document:
+    toc: true
 params:
   cidade: Rio de Janeiro
-  maximo_empregos: 1000
-  arquivo_outliers: arquivo_outliers.csv
-  arquivo_cnpjs: arquivo_cnpjs.csv
-  arquivo_relacao: arquivo_relacao.csv
----
-
----
+  limite: 1800
+  diretorio: data
 title: Outliers da distribuição de empregos - `r params$cidade`
 ---
 
@@ -17,18 +14,18 @@ knitr::opts_chunk$set(echo = FALSE)
 library(dplyr)
 ```
 
-Definição de outliers: hexágonos cuja diferença entre um ano e outro superar 1/3 do máximo de empregos em um hexágono na cidade.
+# Introdução
 
-No caso de `r params$cidade`:
+Definição de outliers: hexágonos cuja diferença entre um ano e outro supera um valor previamente estabelecido .
 
-- Máximo de empregos em um hexágono: `r as.integer(params$maximo_empregos)`
-
-- Valor acima do qual hexágono é considerado outlier: `r as.integer(params$maximo_empregos / 3)`
+No caso de `r params$cidade` o limite é **`r params$limite`**.
 
 # Outliers
 
 ```{r}
-outliers <- data.table::fread(params$arquivo_outliers)
+arq_outliers <- file.path(params$diretorio, "outliers.csv")
+outliers <- data.table::fread(arq_outliers)
+outliers <- outliers[order(id_anos, id_hex)]
 
 knitr::kable(outliers, format = "html") %>% 
   kableExtra::kable_styling(
@@ -37,16 +34,23 @@ knitr::kable(outliers, format = "html") %>%
   )
 ```
 
-# CNPJs por outlier
+# 2017 x 2018
+
+## CNPJs por outlier
 
 ```{r}
+arq_cnpjs_2017_2018 <- file.path(params$diretorio, "cnpjs_2017_2018.csv")
+
 suppressWarnings(
-  cnpjs <- data.table::fread(params$arquivo_cnpjs, colClasses = c(id_estab = "character"))
+  cnpjs_2017_2018 <- data.table::fread(
+    arq_cnpjs_2017_2018, 
+    colClasses = c(id_estab = "character")
+  )
 )
 
-if (nrow(cnpjs) == 0) {
+if (nrow(cnpjs_2017_2018) == 0) {
   
-  cnpjs <- data.table::data.table(
+  cnpjs_2017_2018 <- data.table::data.table(
     id_hex = character(), 
     id_estab = character(),
     total_2017 = numeric(),
@@ -58,12 +62,18 @@ if (nrow(cnpjs) == 0) {
   
 }
 
-linhas_com_NA <- which(is.na(cnpjs$total_2017) | is.na(cnpjs$total_2018))
+cnpjs_2017_2018[is.na(total_2017), total_2017 := 0]
+cnpjs_2017_2018[is.na(total_2018), total_2018 := 0]
+cnpjs_2017_2018[, diferenca := abs(total_2018 - total_2017)]
+cnpjs_2017_2018 <- cnpjs_2017_2018[diferenca > 10]
+cnpjs_2017_2018 <- cnpjs_2017_2018[order(id_hex, desc(diferenca))]
 
-knitr::kable(cnpjs, format = "html") %>% 
+linhas_com_zero <- which(cnpjs_2017_2018$total_2017 == 0 | cnpjs_2017_2018$total_2018 == 0)
+
+knitr::kable(cnpjs_2017_2018, format = "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "left") %>% 
   kableExtra::row_spec(
-    linhas_com_NA, 
+    linhas_com_zero, 
     bold = FALSE, 
     color = "white", 
     background = "#bb6868"
@@ -71,16 +81,21 @@ knitr::kable(cnpjs, format = "html") %>%
   
 ```
 
-# Estabelecimentos em hexágonos diferentes
+## Estabelecimentos em hexágonos diferentes
 
 ```{r}
+arq_relacao_2017_2018 <- file.path(params$diretorio, "relacao_2017_2018.csv")
+
 suppressWarnings(
-  relacao <- data.table::fread(params$arquivo_relacao, colClasses = c(id_estab = "character"))
+  relacao_2017_2018 <- data.table::fread(
+    arq_relacao_2017_2018, 
+    colClasses = c(id_estab = "character")
+  )
 )
 
-if (nrow(relacao) == 0) {
+if (nrow(relacao_2017_2018) == 0) {
   
-  relacao <- data.table::data.table(
+  relacao_2017_2018 <- data.table::data.table(
     id_estab = character(), 
     id_hex_2018 = character(),
     id_hex_2017 = character()
@@ -88,7 +103,128 @@ if (nrow(relacao) == 0) {
   
 }
 
-knitr::kable(relacao, format = "html") %>% 
+knitr::kable(relacao_2017_2018, format = "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "left")
+  
+```
+
+# 2017 x 2019
+
+## CNPJs por outlier
+
+```{r}
+arq_cnpjs_2017_2019 <- file.path(params$diretorio, "cnpjs_2017_2019.csv")
+
+suppressWarnings(
+  cnpjs_2017_2019 <- data.table::fread(
+    arq_cnpjs_2017_2019, 
+    colClasses = c(id_estab = "character")
+  )
+)
+
+if (nrow(cnpjs_2017_2019) == 0) {
+  
+  cnpjs_2017_2019 <- data.table::data.table(
+    id_hex = character(), 
+    id_estab = character(),
+    total_2017 = numeric(),
+    input_2017 = character(),
+    total_2019 = numeric(),
+    input_2019 = character(),
+    razao_social = character()
+  )
+  
+}
+
+cnpjs_2017_2019[is.na(total_2017), total_2017 := 0]
+cnpjs_2017_2019[is.na(total_2019), total_2019 := 0]
+cnpjs_2017_2019[, diferenca := abs(total_2019 - total_2017)]
+cnpjs_2017_2019 <- cnpjs_2017_2019[diferenca > 10]
+cnpjs_2017_2019 <- cnpjs_2017_2019[order(id_hex, desc(diferenca))]
+
+linhas_com_zero <- which(cnpjs_2017_2019$total_2017 == 0 | cnpjs_2017_2019$total_2019 == 0)
+
+knitr::kable(cnpjs_2017_2019, format = "html") %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "left") %>% 
+  kableExtra::row_spec(
+    linhas_com_zero, 
+    bold = FALSE, 
+    color = "white", 
+    background = "#bb6868"
+  )
+  
+```
+
+<!-- ## Estabelecimentos em hexágonos diferentes -->
+
+<!-- ```{r} -->
+<!-- arq_relacao_2017_2019 <- file.path(params$diretorio, "relacao_2017_2019.csv") -->
+
+<!-- suppressWarnings( -->
+<!--   relacao_2017_2019 <- data.table::fread( -->
+<!--     arq_relacao_2017_2019,  -->
+<!--     colClasses = c(id_estab = "character") -->
+<!--   ) -->
+<!-- ) -->
+
+<!-- if (nrow(relacao_2017_2019) == 0) { -->
+
+<!--   relacao_2017_2019 <- data.table::data.table( -->
+<!--     id_estab = character(),  -->
+<!--     id_hex_2019 = character(), -->
+<!--     id_hex_2017 = character() -->
+<!--   ) -->
+
+<!-- } -->
+
+<!-- knitr::kable(relacao_2017_2019, format = "html") %>%  -->
+<!--   kableExtra::kable_styling(full_width = FALSE, position = "left") -->
+
+<!-- ``` -->
+
+# 2018 x 2019
+
+## CNPJs por outlier
+
+```{r}
+arq_cnpjs_2018_2019 <- file.path(params$diretorio, "cnpjs_2018_2019.csv")
+
+suppressWarnings(
+  cnpjs_2018_2019 <- data.table::fread(
+    arq_cnpjs_2018_2019, 
+    colClasses = c(id_estab = "character")
+  )
+)
+
+if (nrow(cnpjs_2018_2019) == 0) {
+  
+  cnpjs_2018_2019 <- data.table::data.table(
+    id_hex = character(), 
+    id_estab = character(),
+    total_2018 = numeric(),
+    input_2018 = character(),
+    total_2019 = numeric(),
+    input_2019 = character(),
+    razao_social = character()
+  )
+  
+}
+
+cnpjs_2018_2019[is.na(total_2018), total_2018 := 0]
+cnpjs_2018_2019[is.na(total_2019), total_2019 := 0]
+cnpjs_2018_2019[, diferenca := abs(total_2019 - total_2018)]
+cnpjs_2018_2019 <- cnpjs_2018_2019[diferenca > 10]
+cnpjs_2018_2019 <- cnpjs_2018_2019[order(id_hex, desc(diferenca))]
+
+linhas_com_zero <- which(cnpjs_2018_2019$total_2018 == 0 | cnpjs_2018_2019$total_2019 == 0)
+
+knitr::kable(cnpjs_2018_2019, format = "html") %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "left") %>% 
+  kableExtra::row_spec(
+    linhas_com_zero, 
+    bold = FALSE, 
+    color = "white", 
+    background = "#bb6868"
+  )
   
 ```
