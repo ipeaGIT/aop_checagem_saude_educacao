@@ -11,7 +11,7 @@ options(future.globals.maxSize = 850 * 1024 ^ 2)
 if (!exists("empregos_2017")) {
 
   empregos_2017 <- readr::read_rds(
-    "../../data/acesso_oport/rais/2017/rais_2017_etapa9.rds"
+    "../../data/acesso_oport/rais/2017/check/rais_2017_check2.rds"
   )
   data.table::setDT(empregos_2017)
 
@@ -20,7 +20,7 @@ if (!exists("empregos_2017")) {
 if (!exists("empregos_2018")) {
 
   empregos_2018 <- readr::read_rds(
-    "../../data/acesso_oport/rais/2018/rais_2018_etapa10.rds"
+    "../../data/acesso_oport/rais/2018/check/rais_2018_check1.rds"
   )
   data.table::setDT(empregos_2018)
 
@@ -29,7 +29,7 @@ if (!exists("empregos_2018")) {
 if (!exists("empregos_2019")) {
 
   empregos_2019 <- readr::read_rds(
-    "../../data/acesso_oport/rais/2019/rais_2019_corrigido_geocoded_censoEscolar.rds"
+    "../../data/acesso_oport/rais/2019/check/rais_2019_check1.rds"
   )
   data.table::setDT(empregos_2019)
 
@@ -70,7 +70,7 @@ if (!exists("limite_diferenca")) {
     "for",       1250,
     "spo",       2000,
     "rio",       1800,
-    "cur",       1000,
+    "cur",       750,
     "poa",       1250,
     "bho",       1250,
     "bsb",       2500,
@@ -80,11 +80,11 @@ if (!exists("limite_diferenca")) {
     "goi",       1100,
     "bel",       500,
     "gua",       750,
-    "cam",       1500,
+    "cam",       750,
     "slz",       1250,
     "sgo",       250,
     "mac",       450,
-    "duq",       1500,
+    "duq",       700,
     "cgr",       250,
     "nat",       600
   ))
@@ -105,11 +105,11 @@ comparacao_uso_do_solo <- function(sigla_muni,
 
   # lê e prepara dados de uso do solo
 
-  grid_2017 <- readr::read_rds(sprintf("../../data/acesso_oport/hex_agregados/2017/hex_agregado_%s_09_2017.rds", sigla_muni))
+  grid_2017 <- readr::read_rds(sprintf("../../data/acesso_oport/rais/2017/hex_agregados_teste/hex_agregados_teste_%s_2017.rds", sigla_muni))
   data.table::setDT(grid_2017)
-  grid_2018 <- readr::read_rds(sprintf("../../data/acesso_oport/hex_agregados/2018/hex_agregado_%s_09_2018.rds", sigla_muni))
+  grid_2018 <- readr::read_rds(sprintf("../../data/acesso_oport/rais/2018/hex_agregados_teste/hex_agregados_teste_%s_2018.rds", sigla_muni))
   data.table::setDT(grid_2018)
-  grid_2019 <- readr::read_rds(sprintf("../../data/acesso_oport/hex_agregados/2019/hex_agregado_%s_09_2019.rds", sigla_muni))
+  grid_2019 <- readr::read_rds(sprintf("../../data/acesso_oport/rais/2019/hex_agregados_teste/hex_agregados_teste_%s_2019.rds", sigla_muni))
   data.table::setDT(grid_2019)
 
   uso_do_solo <- rbind(grid_2017, grid_2018, grid_2019, idcol = "ano")
@@ -285,8 +285,6 @@ comparacao_uso_do_solo <- function(sigla_muni,
 
       if (nrow(outliers_par) > 0) {
 
-        empregos_min <- paste0("empregos_", par_anos[1])
-
         # procura CNPJs que estejam nesses hexágonos em cada ano
 
         cnpjs_outliers_min <- acha_cnpjs_hexagonos(
@@ -454,7 +452,7 @@ acha_cnpjs_hexagonos <- function(sigla_muni, hexagonos, geometria, empregos, ano
 
       cnpjs_por_hex <- data.table::as.data.table(empregos_geo[empregos_hex[, i], ])
 
-     if (ano %in% c(2017, 2019)) {
+     if (ano %in% c(2017)) {
 
        cnpjs_por_hex <- cnpjs_por_hex[
          ,
@@ -500,8 +498,8 @@ gera_mapas <- function(n_cores) {
 
   invisible(furrr::future_map(munis_df$abrev_muni, function(i) {
     comparacao_uso_do_solo(i, "empregos", mapas = TRUE, relatorio = FALSE)
-    comparacao_uso_do_solo(i, "saude", mapas = TRUE, relatorio = FALSE)
-    comparacao_uso_do_solo(i, "edu", mapas = TRUE, relatorio = FALSE)
+    # comparacao_uso_do_solo(i, "saude", mapas = TRUE, relatorio = FALSE)
+    # comparacao_uso_do_solo(i, "edu", mapas = TRUE, relatorio = FALSE)
   }))
 
   future::plan(future::sequential)
