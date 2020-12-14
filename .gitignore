@@ -3,6 +3,7 @@
 .RData
 .Ruserdata
 R_daniel/esqueleto_relatorio.html
+R_daniel/esqueleto_rais.html
 data/*
 data-raw/*
 reports/distribuicao_uso_do_solo/*/debug.log

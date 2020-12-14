@@ -1,0 +1,81 @@
+---
+output: html_document
+params:
+  ano: 2017
+  rais_inteira: NA
+  rais_munis: NA
+title: "Análise da RAIS `r params$ano`"
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+### Introdução
+
+Detalhes sobre cada etapa:
+
+- Fase 1: Já foram tirados empregos públicos, RAIS filtrada para conter apenas os 20 municípios desejados e corrigidos segundo intervalos interquartílicos (misteriosos).
+- Fase 2: Fase 1 com boa Precision Depth (4 Estrelas, 3 Estrelas, street_number, route).
+- Fase 3: Fase 2 com alguns endereços ajustados pelo Google Maps.
+- Fase 4: Fase 3 sem estabelecimentos de código do CNAE 78 e 80.
+
+# RAIS completa
+
+```{r, echo = FALSE}
+knitr::kable(
+  params$rais_inteira, 
+  format = "html", 
+  align = "c", 
+  col.names = c("", "Total", "Total", "Corrigido")
+) %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "left"
+  ) %>% 
+  kableExtra::add_header_above(
+    c(
+      " " = 1,
+      "CNPJs" = 1,
+      "Empregos" = 2
+    )
+  ) %>% 
+  kableExtra::column_spec(1, bold = TRUE)
+```
+
+# RAIS por município
+
+```{r, echo = FALSE, results = 'asis'}
+
+for (i in 1:length(params$rais_munis)) {
+  
+  cat("### ", names(params$rais_munis)[i], "\n")
+  
+  kbl <- knitr::kable(
+    params$rais_munis[[i]], 
+    format = "html", 
+    align = "c", 
+    col.names = c("", "Total", "Total", "Corrigido")
+  ) %>% 
+    kableExtra::kable_styling(
+      bootstrap_options = c("striped", "hover", "condensed"),
+      full_width = FALSE,
+      position = "left"
+    ) %>% 
+    kableExtra::add_header_above(
+      c(
+        " " = 1,
+        "CNPJs" = 1,
+        "Empregos" = 2
+      )
+    ) %>% 
+    kableExtra::column_spec(1, bold = TRUE)
+
+  cat(kbl, "\n")
+  
+}
+
+```
+
