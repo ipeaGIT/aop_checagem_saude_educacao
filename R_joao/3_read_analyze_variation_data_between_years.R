@@ -90,9 +90,8 @@ check_health %>% count(comparacao)
 #### INCORRETO/CORRIGIR GEOLOCALIZACAO
 # all NA
 #### INCORRETO/CORRIGIR GEOLOCALIZACAO
-check_health[comparacao=='All NA'] %>% View()
+#check_health[comparacao=='All NA'] %>% View()
 # Apenas hospitais de 2019 e sem id_hex
-unique(check_health[comparacao=='All NA']$cnes)
 # conferir se cnes existem nos outros anos (2017 ou 2018) [should be F for 2017-18 & T for 2019]
 any(unique(check_health[comparacao=='All NA']$cnes) %in%
       health_complete$health_complete_2017$cnes)
@@ -181,10 +180,44 @@ check_health <- check_health %>%
       comparacao == "All NA" | cnes %in% health_problem_two_na$cnes ~ 'Corrigir',
       T ~ 'Não corrigir/Sem problemas'
     )
+  ) %>%
+  # filter problematic hospitals
+  filter(corrigir == 'Corrigir')
+
+
+
+# add name_muni
+check_health <- dplyr::left_join(
+  check_health,
+  munis_df[, code_muni_6 := stringr::str_sub(as.character(code_muni),1,6)] %>%
+    select(code_muni_6, name_muni),
+  by = c('code_muni' = 'code_muni_6')
+)
+
+# add columns for sheet
+data.table::setDT(check_health)[
+  ,
+  c('google_link','conferido','lon_fixed','lat_fixed') := list(
+    # google_link
+    paste0("https://www.google.com/maps/@", lon, ",", lat),
+    # conferido
+    NA,
+    # lon_fixed
+    NA,
+    # lat_fixed
+    NA
+  )
+]
+
+# select variables
+check_health <- check_health %>%
+  select(
+    google_link, conferido, lon_fixed, lat_fixed, cnes, ano, comparacao,estabelecimento, name_muni,
+    cep, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
   )
 
-# * 3.2 check educ data ---------------------------------------------------
 
+# * 3.2 check educ data ---------------------------------------------------
 
 check_educ %>% count(comparacao)
 
@@ -284,8 +317,39 @@ check_educ <- check_educ %>%
       comparacao == "2019 different" ~ 'Corrigir',
       T ~ 'Não corrigir/Sem problemas'
     )
-  )
+  ) %>%
+  # filter problematic hospitals
+  filter(corrigir == 'Corrigir')
 
+# add name_muni
+check_educ <- dplyr::left_join(
+  check_educ,
+  munis_df %>%
+    select(code_muni, name_muni),
+  by = c('code_muni' = 'code_muni')
+)
+
+# add columns for sheet
+data.table::setDT(check_educ)[
+  ,
+  c('google_link','conferido','lon_fixed','lat_fixed') := list(
+    # google_link
+    paste0("https://www.google.com/maps/@", lon, ",", lat),
+    # conferido
+    NA,
+    # lon_fixed
+    NA,
+    # lat_fixed
+    NA
+  )
+]
+
+# select variables
+check_educ <- check_educ %>%
+  select(
+    google_link, conferido, lon_fixed, lat_fixed, co_entidade, ano, comparacao, no_entidade,
+    name_muni, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
+  )
 
 # 3.3 save data to be corrected -------------------------------------------
 
@@ -293,8 +357,9 @@ if (!dir.exists(here('data', 'corrigir'))) {
   dir.create(here('data', 'corrigir'))
 }
 
-readr::write_rds(check_health[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_health.rds'))
-#data.table::fwrite(check_health[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_health.csv'))
-readr::write_rds(check_educ[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_educ.rds'))
-#data.table::fwrite(check_educ[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_educ.csv'))
+
+readr::write_rds(check_health, here::here('data', 'corrigir', 'corrigir_health.rds'))
+data.table::fwrite(check_health, here::here('data', 'corrigir', 'corrigir_health.csv'))
+readr::write_rds(check_educ, here::here('data', 'corrigir', 'corrigir_educ.rds'))
+data.table::fwrite(check_educ, here::here('data', 'corrigir', 'corrigir_educ.csv'))
 
