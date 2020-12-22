@@ -289,12 +289,12 @@ check_educ <- check_educ %>%
 
 # 3.3 save data to be corrected -------------------------------------------
 
-if (!dir.exists(here('data', 'CORRIGIR'))) {
-  dir.create(here('data', 'CORRIGIR'))
+if (!dir.exists(here('data', 'corrigir'))) {
+  dir.create(here('data', 'corrigir'))
 }
 
-readr::write_rds(check_health[corrigir=='Corrigir'], here::here('data', 'CORRIGIR', 'corrigir_health.rds'))
-#data.table::fwrite(check_health[corrigir=='Corrigir'], here::here('data', 'CORRIGIR', 'corrigir_health.csv'))
-readr::write_rds(check_educ[corrigir=='Corrigir'], here::here('data', 'CORRIGIR', 'corrigir_educ.rds'))
-#data.table::fwrite(check_educ[corrigir=='Corrigir'], here::here('data', 'CORRIGIR', 'corrigir_educ.csv'))
+readr::write_rds(check_health[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_health.rds'))
+#data.table::fwrite(check_health[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_health.csv'))
+readr::write_rds(check_educ[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_educ.rds'))
+#data.table::fwrite(check_educ[corrigir=='Corrigir'], here::here('data', 'corrigir', 'corrigir_educ.csv'))
 
