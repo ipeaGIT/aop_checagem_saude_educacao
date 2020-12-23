@@ -215,7 +215,7 @@ check_health <- check_health %>%
     google_link, conferido, lon_fixed, lat_fixed, cnes, ano, comparacao,estabelecimento, name_muni,
     code_muni,cep, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
   ) %>%
-  arrange(name_muni, cnes, ano)
+  arrange(name_muni, cnes, ano, comparacao)
 
 
 # * 3.2 check educ data ---------------------------------------------------
@@ -351,7 +351,7 @@ check_educ <- check_educ %>%
     google_link, conferido, lon_fixed, lat_fixed, co_entidade, ano, comparacao, no_entidade,
     name_muni, code_muni, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
   ) %>%
-  arrange(name_muni, co_entidade, ano)
+  arrange(name_muni, co_entidade, ano, comparacao)
 
 # 3.3 save data to be corrected -------------------------------------------
 
