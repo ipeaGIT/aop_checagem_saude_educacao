@@ -213,8 +213,9 @@ data.table::setDT(check_health)[
 check_health <- check_health %>%
   select(
     google_link, conferido, lon_fixed, lat_fixed, cnes, ano, comparacao,estabelecimento, name_muni,
-    cep, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
-  )
+    code_muni,cep, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
+  ) %>%
+  arrange(name_muni, cnes, ano)
 
 
 # * 3.2 check educ data ---------------------------------------------------
@@ -348,8 +349,9 @@ data.table::setDT(check_educ)[
 check_educ <- check_educ %>%
   select(
     google_link, conferido, lon_fixed, lat_fixed, co_entidade, ano, comparacao, no_entidade,
-    name_muni, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
-  )
+    name_muni, code_muni, SearchedAddress, MatchedAddress, limite, PrecisionDepth, geocode_engine
+  ) %>%
+  arrange(name_muni, co_entidade, ano)
 
 # 3.3 save data to be corrected -------------------------------------------
 
