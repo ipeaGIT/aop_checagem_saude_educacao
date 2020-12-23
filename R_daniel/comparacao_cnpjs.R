@@ -205,7 +205,13 @@ gerar_relatorio <- function(ano, dts_empregos, nomes_etapas) {
 atualizar_relatorios <- function() {
 
   boa_precisao <- c("4 Estrelas", "3 Estrelas", "street_number", "route")
-  nome_etapas <- paste0("Fase ", 1:4)
+  nome_etapas <- paste0("Fase ", 1:6)
+  setores_problematicos <- c(
+    "35","36","49","51","82","38", "78", "80", "41", "42", "43", "64", "81", "84"
+  )
+  realmente_estranhos <- c(
+    "35", "36", "38", "42", "51", "78", "80"
+  )
 
   gerar_relatorio(
     2017,
@@ -213,7 +219,9 @@ atualizar_relatorios <- function() {
       rais_2017_basica,
       rais_2017_basica[PrecisionDepth %chin% boa_precisao],
       rais_2017_gmaps[PrecisionDepth %chin% boa_precisao],
-      rais_2017_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% c("78", "80")]
+      rais_2017_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% c("78", "80")],
+      rais_2017_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% realmente_estranhos],
+      rais_2017_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% setores_problematicos]
     ),
     nome_etapas
   )
@@ -224,7 +232,9 @@ atualizar_relatorios <- function() {
       rais_2018_basica,
       rais_2018_basica[PrecisionDepth %chin% boa_precisao],
       rais_2018_gmaps[PrecisionDepth %chin% boa_precisao],
-      rais_2018_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% c("78", "80")]
+      rais_2018_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% c("78", "80")],
+      rais_2018_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% realmente_estranhos],
+      rais_2018_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% setores_problematicos]
     ),
     nome_etapas
   )
@@ -235,7 +245,9 @@ atualizar_relatorios <- function() {
       rais_2019_basica,
       rais_2019_basica[PrecisionDepth %chin% boa_precisao],
       rais_2019_gmaps[PrecisionDepth %chin% boa_precisao],
-      rais_2019_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% c("78", "80")]
+      rais_2019_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% c("78", "80")],
+      rais_2019_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% realmente_estranhos],
+      rais_2019_gmaps[PrecisionDepth %chin% boa_precisao][! cnae.setor %chin% setores_problematicos]
     ),
     nome_etapas
   )

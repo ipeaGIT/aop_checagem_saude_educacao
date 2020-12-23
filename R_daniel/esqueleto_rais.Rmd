@@ -20,6 +20,8 @@ Detalhes sobre cada etapa:
 - Fase 2: Fase 1 com boa Precision Depth (4 Estrelas, 3 Estrelas, street_number, route).
 - Fase 3: Fase 2 com alguns endereços ajustados pelo Google Maps.
 - Fase 4: Fase 3 sem estabelecimentos de código do CNAE 78 e 80.
+- Fase 5: Fase 3 sem estabelecimentos de código do CNAE 35, 36, 48, 42, 51, 78 e 80.
+- Fase 6: Fase 3 sem nenhum estabelecimento de setores problemáticos.
 
 # RAIS completa
 
