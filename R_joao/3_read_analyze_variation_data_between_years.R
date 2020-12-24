@@ -199,7 +199,7 @@ data.table::setDT(check_health)[
   ,
   c('google_link','conferido','lon_fixed','lat_fixed') := list(
     # google_link
-    paste0("https://www.google.com/maps/@", lon, ",", lat),
+    paste0("https://www.google.com/maps/@", lat, ",", lon, ',17.5z'),
     # conferido
     NA,
     # lon_fixed
@@ -335,7 +335,7 @@ data.table::setDT(check_educ)[
   ,
   c('google_link','conferido','lon_fixed','lat_fixed') := list(
     # google_link
-    paste0("https://www.google.com/maps/@", lon, ",", lat),
+    paste0("https://www.google.com/maps/@", lat, ",", lon, ',17.5z'),
     # conferido
     NA,
     # lon_fixed
