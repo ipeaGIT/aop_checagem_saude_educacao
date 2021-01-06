@@ -637,13 +637,28 @@ summary {
 
 </div>
 
-
-<p>Definição de outliers: hexágonos cuja diferença entre um ano e outro superar 1/3 do máximo de empregos em um hexágono na cidade.</p>
-<p>No caso de Manaus:</p>
+<div id="TOC">
 <ul>
-<li><p>Máximo de empregos em um hexágono: 6056</p></li>
-<li><p>Valor acima do qual hexágono é considerado outlier: 2018</p></li>
+<li><a href="#introdução">Introdução</a></li>
+<li><a href="#outliers">Outliers</a></li>
+<li><a href="#x-2018">2017 x 2018</a><ul>
+<li><a href="#cnpjs-por-outlier">CNPJs por outlier</a></li>
+<li><a href="#estabelecimentos-em-hexágonos-diferentes">Estabelecimentos em hexágonos diferentes</a></li>
+</ul></li>
+<li><a href="#x-2019">2017 x 2019</a><ul>
+<li><a href="#cnpjs-por-outlier-1">CNPJs por outlier</a></li>
+</ul></li>
+<li><a href="#x-2019-1">2018 x 2019</a><ul>
+<li><a href="#cnpjs-por-outlier-2">CNPJs por outlier</a></li>
+</ul></li>
 </ul>
+</div>
+
+<div id="introdução" class="section level1">
+<h1>Introdução</h1>
+<p>Definição de outliers: hexágonos cuja diferença entre um ano e outro supera um valor previamente estabelecido .</p>
+<p>No caso de Manaus o limite é <strong>750</strong>.</p>
+</div>
 <div id="outliers" class="section level1">
 <h1>Outliers</h1>
 <table class="table" style="width: auto !important; ">
@@ -652,7 +667,7 @@ summary {
 <th style="text-align:left;">
 id_hex
 </th>
-<th style="text-align:left;">
+<th style="text-align:right;">
 diferenca
 </th>
 <th style="text-align:left;">
@@ -662,12 +677,375 @@ id_anos
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left;">
+898af68c183ffff
+</td>
+<td style="text-align:right;">
+-764
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:right;">
+954
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e11bffff
+</td>
+<td style="text-align:right;">
+766
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:right;">
+-997
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af606947ffff
+</td>
+<td style="text-align:right;">
+767
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af6166abffff
+</td>
+<td style="text-align:right;">
+1278
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c183ffff
+</td>
+<td style="text-align:right;">
+-766
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c4cfffff
+</td>
+<td style="text-align:right;">
+1045
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c597ffff
+</td>
+<td style="text-align:right;">
+768
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:right;">
+991
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:right;">
+-804
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:right;">
+-1683
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:right;">
+766
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5dbffff
+</td>
+<td style="text-align:right;">
+1000
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68dc17ffff
+</td>
+<td style="text-align:right;">
+1115
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e0dbffff
+</td>
+<td style="text-align:right;">
+-1246
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e137ffff
+</td>
+<td style="text-align:right;">
+983
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e20bffff
+</td>
+<td style="text-align:right;">
+843
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:right;">
+-1057
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ec03ffff
+</td>
+<td style="text-align:right;">
+-761
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68eecfffff
+</td>
+<td style="text-align:right;">
+825
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af6b9197ffff
+</td>
+<td style="text-align:right;">
+760
+</td>
+<td style="text-align:left;">
+2017 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af606947ffff
+</td>
+<td style="text-align:right;">
+767
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af6166abffff
+</td>
+<td style="text-align:right;">
+1278
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:right;">
+-1044
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:right;">
+874
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:right;">
+-1804
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e0dbffff
+</td>
+<td style="text-align:right;">
+-1536
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e137ffff
+</td>
+<td style="text-align:right;">
+1098
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:right;">
+799
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e20bffff
+</td>
+<td style="text-align:right;">
+799
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:right;">
+-908
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:right;">
+-1213
+</td>
+<td style="text-align:left;">
+2018 -&gt; 2019
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="cnpjs-por-outlier" class="section level1">
-<h1>CNPJs por outlier</h1>
+<div id="x-2018" class="section level1">
+<h1>2017 x 2018</h1>
+<div id="cnpjs-por-outlier" class="section level2">
+<h2>CNPJs por outlier</h2>
 <table class="table" style="width: auto !important; ">
 <thead>
 <tr>
@@ -692,16 +1070,474 @@ input_2018
 <th style="text-align:left;">
 razao_social
 </th>
+<th style="text-align:right;">
+diferenca
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c183ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07945678000358
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+756
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+756
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+04718687000156
+</td>
+<td style="text-align:right;">
+241
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+1173
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ANTONELLY CONST E SERV EIRELI
+</td>
+<td style="text-align:right;">
+932
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+11374000000178
+</td>
+<td style="text-align:right;">
+560
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+641
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NURSES SERVICOS DE SAUDE DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+81
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+14362946000102
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+LILIANE DE OLIVEIRA PINHEIRO
+</td>
+<td style="text-align:right;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+10172832000149
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ANDERSON CLAITON LIMA ME
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+18291755000158
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+PANAMORE INDUSTRIA E COMERCIO DE PRODUTOS DE
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+01426987000173
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+PLASTIFLEX EMPREENDIMENTOS DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+05885398000104
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+13
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+01864555000144
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e11bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07945678000358
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+735
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SERVIS SEGURANCA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+735
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e11bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+26804280000184
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+67
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+E MARIANO NEVES CIA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e11bffff
+</td>
+<td style="text-align:left;">
+08489409000710
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+VIACAO VALE DO AMAZONAS LTD EPP
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e11bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+22536233000146
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e157ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+13272780000170
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+992
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+AGENCIA AMAZONENSE DE DESENVOLVIMENTO ECONOMI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+992
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:left;">
+22218501000181
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SOLIDA SERVICO DA CONSTRUCAO LTDA-EPP
+</td>
+<td style="text-align:right;">
+59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:left;">
+23031289000101
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+OZIEL MUSTAFA DOS SANTOS &amp; CIA LTDA
+</td>
+<td style="text-align:right;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:left;">
+05487855000102
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+GIUSEPPE MODICA AMORE NETO ME
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:left;">
+04407920000180
+</td>
+<td style="text-align:right;">
+397
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+408
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+PRODAM PROCESSAMENTO DE DADOS AMAZONAS S/A
+</td>
+<td style="text-align:right;">
+11
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="estabelecimentos-em-hexágonos-diferentes" class="section level1">
-<h1>Estabelecimentos em hexágonos diferentes</h1>
+<div id="estabelecimentos-em-hexágonos-diferentes" class="section level2">
+<h2>Estabelecimentos em hexágonos diferentes</h2>
 <table class="table" style="width: auto !important; ">
 <thead>
 <tr>
@@ -721,6 +1557,5023 @@ id_hex_2017
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="x-2019" class="section level1">
+<h1>2017 x 2019</h1>
+<div id="cnpjs-por-outlier-1" class="section level2">
+<h2>CNPJs por outlier</h2>
+<table class="table" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+id_hex
+</th>
+<th style="text-align:left;">
+id_estab
+</th>
+<th style="text-align:right;">
+total_2017
+</th>
+<th style="text-align:left;">
+input_2017
+</th>
+<th style="text-align:right;">
+total_2019
+</th>
+<th style="text-align:left;">
+input_2019
+</th>
+<th style="text-align:left;">
+razao_social
+</th>
+<th style="text-align:right;">
+diferenca
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+00030280012988
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+678
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+FRANCISCO HELDER DE OLIVEIRA PEIXOTO
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+678
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07386098000297
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+45
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+RIO AMAZONAS ENERGIA S/A
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04612553000156
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CAMPO DA AMAZONIA BIOTECNOLOGIA CONSULTORIA E COMERC
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04945416000133
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ASSOCIACAO ATLETICA BANCO DO BRASIL
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af6166abffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+84098383000172
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1278
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CHIBATAO NAVEGACAO E COMERCIO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1278
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c183ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07945678000358
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+756
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+756
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c4cfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+08475819000117
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1038
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+LE RECURSOS HUMANOS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1038
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c597ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+25278459002126
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+715
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SEGURPRO VIGILANCIA PATRIMONIAL S.A.
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+715
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c597ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+05830146000188
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+63
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ADUANA DESPACHOS E ASSESSORIA DE COMERCIO EXTERIOR L
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+63
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c597ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+10636023000140
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+35
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+MELO ATIVIDADES PROFISSIONAIS EIRELI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c597ffff
+</td>
+<td style="text-align:left;">
+84486513000144
+</td>
+<td style="text-align:right;">
+368
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+341
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+COMDASP CONSULTORIA EMPRESARIAL LTDA
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+23453830002202
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+739
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+INSTITUTO NACIONAL DE DESENVOLVIMENTO SOCIAL E HUMAN
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+739
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;">
+12424020000179
+</td>
+<td style="text-align:right;">
+390
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+545
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NOVAMED FABRICACAO DE PRODUTOS FARMACEUTICOS LTDA.
+</td>
+<td style="text-align:right;">
+155
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;">
+10539197000195
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+181
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+AJ REFEICOES LTDA
+</td>
+<td style="text-align:right;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;">
+09154836000115
+</td>
+<td style="text-align:right;">
+157
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ARRIS INDUSTRIA ELETRONICA DO BRASIL LTDA
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+30604764000157
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+AUTO POSTO TORQUATO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31071535000187
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+14
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+TORQUATO LOJA DE CONVENIENCIA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+23732890000202
+</td>
+<td style="text-align:right;">
+561
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+UNIMED DE MANAUS EMPREENDIMENTOS S.A
+</td>
+<td style="text-align:right;">
+542
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+04612990000170
+</td>
+<td style="text-align:right;">
+423
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+UNIMED DE MANAUS COOPERATIVA DE TRABALHO MEDICO LTDA
+</td>
+<td style="text-align:right;">
+272
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+04803904000106
+</td>
+<td style="text-align:right;">
+966
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+894
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+CENTRO DE ENSINO SUPERIOR NILTON LINS
+</td>
+<td style="text-align:right;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+09531642000191
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ADAP COMERCIO DE EQUIPAMENTOS DE PROTECAO INDIVIDUAL
+</td>
+<td style="text-align:right;">
+68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31356119000125
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+63
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CENTRO DE ENSINO E TREINAMENTO BG LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+63
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+07548289000127
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+COMPLEXO DE SERVICOS EDUCACIONAIS LIMITADA
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04429478015033
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+23
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+09156679000187
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+AUTOVEL SERVICOS AUTOMOTIVOS LTDA ME
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+14107159000114
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+13
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+B G VEIGA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+04612990000412
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+UNIMED DE MANAUS COOPERATIVA DE TRABALHO MEDICO LTDA
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;">
+01023004000158
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+MOSAICO ENGENHARIA, INDUSTRIA E COMERCIO DE ARTEFATO
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ce9bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02787713000253
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+J C N COMERCIO DE COMBUSTIVEIS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07637620000185
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1737
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1737
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04265872000132
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+84
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ITAUTINGA AGRO INDUSTRIAL S A
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:left;">
+04160537000170
+</td>
+<td style="text-align:right;">
+332
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+253
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+TEMA TRANSPORTES ESPECIAL DE MANAUS LTDA
+</td>
+<td style="text-align:right;">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+24352003000152
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+42
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+BRIDGE INDUSTRIA DE PRODUTOS PLASTICOS DA AMAZONIA L
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:left;">
+84507920000190
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+AZEVEDO TRANSPORTES LTDA
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+03234553000105
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+14182837000103
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+J W GUIMARAES DE SOUZA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+00835261000121
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+172
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+A.M. DA S RODRIGUES &amp; CIA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+06710613001090
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+129
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+RUFINO COMERCIO E INDUSTRIA DE ALIMENTOS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+06030520000123
+</td>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+223
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+RIOLIMPO INDUSTRIA E COMERCIO DE RESIDUOS LTDA
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+04240370001129
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+188
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+MERCANTIL NOVA ERA LTDA
+</td>
+<td style="text-align:right;">
+62
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02964147000470
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+55
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+PACIFICO LOG LOGISTICA E TRANSPORTES EIRELI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+24290406000114
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+N C DE O CORREA EPP
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+28664066000103
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+33
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ADMINISTRADORA DE CARTAO DE DESCONTO MANAUS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02680476000146
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SAPECA AUTO PECAS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+28757216000115
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+25
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CLINICA DE SAUDE MANAUS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+10910600000221
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+JOAO CARLOS DOS SANTOS CIA LTDA ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+33104663000105
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+23
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SAMUEL FIGUEIREDO SIQUEIRA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+09631624000181
+</td>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+J R RODRIGUES VARIEDADES LTDA
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+00852337000127
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+21
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+JRL TRANSPORTES LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+14716929000126
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+18684658000125
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+007 COMERCIO DE VESTUARIO LTDA
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+25079896000339
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+12361267000355
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+19
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ULTRA SOM SERVICOS MEDICOS S.A.
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+17102926000190
+</td>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+IN TIME TRANSPORTES LTDA
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31610334004793
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+DROGARIAS FARMABEM LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+26091735000161
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+FELIPE CARREIRO DE AQUINO
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+02137093000126
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+K.F.CONSTRUCOES E COMERCIO LTDA
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5afffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+10910600000140
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+JOAO CARLOS DOS SANTOS CIA LTDA ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+11673145000927
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+RONDOBRAS DO AMAZONAS DISTRIBUIDORA DE AUTO PECAS LT
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+19079739000169
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+S. L. B. COMERCIO DE EQUIPAMENTOS E PECA
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5afffff
+</td>
+<td style="text-align:left;">
+22683863000143
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+RIOLIMPO TRANSPORTES RODOVIARIOS LTDA
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5dbffff
+</td>
+<td style="text-align:left;">
+21785364000102
+</td>
+<td style="text-align:right;">
+499
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+997
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+TRANSIRE FABRICACAO DE COMPONENTES ELETRONICOS LTDA
+</td>
+<td style="text-align:right;">
+498
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d5dbffff
+</td>
+<td style="text-align:left;">
+08258870000177
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+488
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+CALLIDUS INDUSTRIA, COMERCIO E SERVICOS DE PLACAS E
+</td>
+<td style="text-align:right;">
+478
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d5dbffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+32818709000276
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+PARTUMLOG TRANSPORTES E LOGISTICA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68dc17ffff
+</td>
+<td style="text-align:left;">
+04337168000148
+</td>
+<td style="text-align:right;">
+4952
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+5682
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+MOTO HONDA DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+730
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68dc17ffff
+</td>
+<td style="text-align:left;">
+21026335000159
+</td>
+<td style="text-align:right;">
+416
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+777
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+LSL TRANSPORTES DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+361
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68dc17ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+49930514316876
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+168
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SODEXO DO BRASIL COMERCIAL S.A.
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+168
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68dc17ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02070626004863
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+151
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68dc17ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+29391837000190
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+POSTO NOVO ALEIXO COMERCIO VAREJISTA DE COMBUSTIVEIS
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e0dbffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+84098383000172
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1246
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1246
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+03264927000127
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+975
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+MANAUS AMBIENTAL S.A.
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04218608000490
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+121
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+19070650000131
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+66
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CETEQ - SERVICOS DE MAO-DE-OBRA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02598874000118
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+47
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+L L HARRAQUIAN ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31635558000177
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+EMMANUEL MICHAEL HARRAQUIAN NETO EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04505639000180
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+N. J. CONSTRUCOES, NAVEGACAO E COMERCIO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e20bffff
+</td>
+<td style="text-align:left;">
+04547098000152
+</td>
+<td style="text-align:right;">
+851
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+1768
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+I-SHENG BRASIL INDUSTRIA E COMERCIO DE COMPONENTES E
+</td>
+<td style="text-align:right;">
+917
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e20bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04565289001038
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+56
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+56
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e20bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02458527000785
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+25
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e20bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+01987011000170
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+M L DE C JUNIOR
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e20bffff
+</td>
+<td style="text-align:left;">
+05458096000150
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SWEDISH MATCH DA AMAZONIA S.A
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:left;">
+09637508000412
+</td>
+<td style="text-align:right;">
+1789
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+930
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+H M CONSULTORIA E RECURSOS HUMANOS EIRELI
+</td>
+<td style="text-align:right;">
+859
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e38fffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+19315492000132
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+230
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+230
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e38fffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+27508080000490
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+109
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+VEGA MOTOCENTER LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+109
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:left;">
+84113547000193
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+CENTRO EDUCACIONAL ANCHIETA LTA
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e38fffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31610334002820
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+28
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+DROGARIAS FARMABEM LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e38fffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+09118289000112
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ESCOLA MIGUEL DE CERVANTES LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:left;">
+01133787000122
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+PARTNERS PARTICIPACOES LTDA
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e38fffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04429478013847
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+15
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:left;">
+10583217000125
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NEW DESIGN COMERCIO DE TINTAS E SERVICOS DE PINTURA
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:left;">
+23611514000189
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+MEDHAUS COMERCIO PRODUTOS HOSPITALARES
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e38fffff
+</td>
+<td style="text-align:left;">
+14024658000148
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+TVLAR COMERCIO DE MOTOS LTDA
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ec03ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+03264927000127
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+789
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+789
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ec03ffff
+</td>
+<td style="text-align:left;">
+05471255000156
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+227
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+VIACAO CARAVELAS EIRELI
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ec03ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+13137572000169
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07945678000358
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+755
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SERVIS SEGURANCA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+755
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04240370002010
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+212
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+MERCANTIL NOVA ERA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+212
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68eecfffff
+</td>
+<td style="text-align:left;">
+04429478011631
+</td>
+<td style="text-align:right;">
+193
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+new_estab_2019
+</td>
+<td style="text-align:left;">
+SB COMERCIO LTDA
+</td>
+<td style="text-align:right;">
+192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+05994459000414
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+154
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04218608000229
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+59
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+12361267011551
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+49
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ULTRA SOM SERVICOS MEDICOS S.A.
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68eecfffff
+</td>
+<td style="text-align:left;">
+02437460000530
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+INSTITUTO DE PESQUISAS ELDORADO
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+06970546000232
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+37
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+REDE PALAVRA DE TELEVISAO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04949558000179
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+34
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CONGREGACAO DAS MISSIONARIAS IMAC NORTE DO BRASIL
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+60628369000922
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+33
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+RADIO E TELEVISAO RECORD S.A
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68eecfffff
+</td>
+<td style="text-align:left;">
+09186089000105
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+MARAVILHA ALIMENTOS EIRELI
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+25307664000129
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+23
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+RICARDO VINICIUS FELICORI DE MENEZES EIRELI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68eecfffff
+</td>
+<td style="text-align:left;">
+13612806000263
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ROSNEFT BRASIL E&amp;P LTDA
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31610334001930
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+19
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+DROGARIAS FARMABEM LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04429478014061
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+11943071000144
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68eecfffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+13913125000154
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68eecfffff
+</td>
+<td style="text-align:left;">
+63554067003618
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+HAPVIDA ASSISTENCIA MEDICA LTDA
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af6b9197ffff
+</td>
+<td style="text-align:left;">
+01894253002243
+</td>
+<td style="text-align:right;">
+378
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:right;">
+1135
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+MANPOWER STAFFING LTDA.
+</td>
+<td style="text-align:right;">
+757
+</td>
+</tr>
+</tbody>
+</table>
+<!-- ## Estabelecimentos em hexágonos diferentes -->
+<!-- ```{r} -->
+<!-- arq_relacao_2017_2019 <- file.path(params$diretorio, "relacao_2017_2019.csv") -->
+<!-- suppressWarnings( -->
+<!--   relacao_2017_2019 <- data.table::fread( -->
+<!--     arq_relacao_2017_2019,  -->
+<!--     colClasses = c(id_estab = "character") -->
+<!--   ) -->
+<!-- ) -->
+<!-- if (nrow(relacao_2017_2019) == 0) { -->
+<!--   relacao_2017_2019 <- data.table::data.table( -->
+<!--     id_estab = character(),  -->
+<!--     id_hex_2019 = character(), -->
+<!--     id_hex_2017 = character() -->
+<!--   ) -->
+<!-- } -->
+<!-- knitr::kable(relacao_2017_2019, format = "html") %>%  -->
+<!--   kableExtra::kable_styling(full_width = FALSE, position = "left") -->
+<!-- ``` -->
+</div>
+</div>
+<div id="x-2019-1" class="section level1">
+<h1>2018 x 2019</h1>
+<div id="cnpjs-por-outlier-2" class="section level2">
+<h2>CNPJs por outlier</h2>
+<table class="table" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+id_hex
+</th>
+<th style="text-align:left;">
+id_estab
+</th>
+<th style="text-align:right;">
+total_2018
+</th>
+<th style="text-align:left;">
+input_2018
+</th>
+<th style="text-align:left;">
+razao_social_2018
+</th>
+<th style="text-align:right;">
+total_2019
+</th>
+<th style="text-align:left;">
+input_2019
+</th>
+<th style="text-align:left;">
+razao_social_2019
+</th>
+<th style="text-align:right;">
+diferenca
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+00030280012988
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+678
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+FRANCISCO HELDER DE OLIVEIRA PEIXOTO
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+678
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07386098000297
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+45
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+RIO AMAZONAS ENERGIA S/A
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04612553000156
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CAMPO DA AMAZONIA BIOTECNOLOGIA CONSULTORIA E COMERC
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af606947ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04945416000133
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+ASSOCIACAO ATLETICA BANCO DO BRASIL
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af6166abffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+84098383000172
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1278
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CHIBATAO NAVEGACAO E COMERCIO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1278
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+04718687000156
+</td>
+<td style="text-align:right;">
+1173
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ANTONELLY CONST E SERV EIRELI
+</td>
+<td style="text-align:right;">
+352
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ANTONELLY CONSTRUCOES E SERVICOS EIRELI
+</td>
+<td style="text-align:right;">
+821
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+11374000000178
+</td>
+<td style="text-align:right;">
+641
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NURSES SERVICOS DE SAUDE DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+378
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NURSES - SERVICOS DE SAUDE DA AMAZONIA - EIRELI
+</td>
+<td style="text-align:right;">
+263
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+05446406000116
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+178
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+R COSTA VIANA CIA LTDA EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+178
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+09228233000382
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+ESTACAO VIP SEGURANCA PRIVADA EIRELI
+</td>
+<td style="text-align:right;">
+148
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+ESTACAO VIP SEGURANCA PRIVADA EIRELI
+</td>
+<td style="text-align:right;">
+147
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+01426987000173
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+PLASTIFLEX EMPREENDIMENTOS DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+PLASTIFLEX EMPREENDIMENTOS DA AMAZONIA LTDA
+</td>
+<td style="text-align:right;">
+70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c1b7ffff
+</td>
+<td style="text-align:left;">
+03284632000112
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+M P DOS SANTOS FERRAGEM
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+M P DOS SANTOS FERRAGEM
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+23453830002202
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+739
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+INSTITUTO NACIONAL DE DESENVOLVIMENTO SOCIAL E HUMAN
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+739
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;">
+10539197000195
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+AJ REFEICOES LTDA
+</td>
+<td style="text-align:right;">
+181
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+AJ REFEICOES LTDA
+</td>
+<td style="text-align:right;">
+117
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;">
+09154836000115
+</td>
+<td style="text-align:right;">
+148
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ARRIS INDUSTRIA ELETRONICA DO BRASIL LTDA
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+ARRIS INDUSTRIA ELETRONICA DO BRASIL LTDA
+</td>
+<td style="text-align:right;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;">
+12424020000179
+</td>
+<td style="text-align:right;">
+504
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NOVAMED FABRICACAO DE PRODUTOS FARMACEUTICOS
+</td>
+<td style="text-align:right;">
+545
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+NOVAMED FABRICACAO DE PRODUTOS FARMACEUTICOS LTDA.
+</td>
+<td style="text-align:right;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+30604764000157
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+AUTO POSTO TORQUATO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68c8a3ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31071535000187
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+14
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+TORQUATO LOJA DE CONVENIENCIA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+07637620000185
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1756
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SALCOMP INDUSTRIAL ELETRONICA DA AMAZONIA LTD
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1756
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:left;">
+04160537000170
+</td>
+<td style="text-align:right;">
+312
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+TEMA TRANSPORTES ESPECIAIS DE MANAUS LTD
+</td>
+<td style="text-align:right;">
+253
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+TEMA TRANSPORTES ESPECIAL DE MANAUS LTDA
+</td>
+<td style="text-align:right;">
+59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+01216705000103
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+22
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+TRANSENO DA AMAZONIA REPREPRESENTACAO COMERCI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:left;">
+84507920000190
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+AZEVEDO TRANSPORTES LTDA
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+AZEVEDO TRANSPORTES LTDA
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68d553ffff
+</td>
+<td style="text-align:left;">
+24352003000152
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+BRIDGE IND DE PRODUTOS PLASTICOS DA AMAZONIA
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+BRIDGE INDUSTRIA DE PRODUTOS PLASTICOS DA AMAZONIA L
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68d553ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+14182837000103
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+J W GUIMARAES DE SOUZA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e0dbffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+84098383000172
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1536
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CHIBATAO NAVEGACAO E COMERCIO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+1536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+03264927000127
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+975
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+MANAUS AMBIENTAL S.A.
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+19070650000131
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+66
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CETEQ - SERVICOS DE MAO-DE-OBRA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+02598874000118
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+47
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+L L HARRAQUIAN ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e137ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+31635558000177
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+EMMANUEL MICHAEL HARRAQUIAN NETO EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e157ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+13272780000170
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+AGENCIA AMAZONENSE DE DESENVOLVIMENTO ECONOMI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+894
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+AGENCIA AMAZONENSE DE DESENVOLVIMENTO ECONOMICO E SO
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+894
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e157ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+22218501000181
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+60
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+SOLIDA SERVICO DA CONSTRUCAO LTDA-EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e157ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+16994652000129
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+28
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+KAELY CERTIFICACAO DIGITAL LTDA ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:left;">
+04407920000180
+</td>
+<td style="text-align:right;">
+408
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+PRODAM PROCESSAMENTO DE DADOS AMAZONAS S/A
+</td>
+<td style="text-align:right;">
+428
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+PRODAM PROCESSAMENTO DE DADOS AMAZONAS S A
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e157ffff
+</td>
+<td style="text-align:left;">
+23031289000101
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+OZIEL MUSTAFA DOS SANTOS &amp; CIA LTDA
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+OZIEL MUSTAFA DOS SANTOS &amp; CIA LTDA
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e157ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+63636500000134
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+JM OBRAS E TERRAPLENAGEM LTDA EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e20bffff
+</td>
+<td style="text-align:left;">
+04547098000152
+</td>
+<td style="text-align:right;">
+986
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+I SHENG BRASIL IND COM DE COMP ELETRONICOS LT
+</td>
+<td style="text-align:right;">
+1768
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+I-SHENG BRASIL INDUSTRIA E COMERCIO DE COMPONENTES E
+</td>
+<td style="text-align:right;">
+782
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e20bffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+01987011000170
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+M L DE C JUNIOR
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+17783933000103
+</td>
+<td style="text-align:right;">
+969
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+MAMUTE CONSERVACAO CONSTRUCAO E PAVIMENTACAO
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+MAMUTE CONSERVACAO, CONSTRUCAO E PAVIMENTACAO LTDA.
+</td>
+<td style="text-align:right;">
+881
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+29606543000139
+</td>
+<td style="text-align:right;">
+155
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+JJE SERVICOS DE ESCRITORIO E APOIO ADMINISTRA
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+JJE SERVICOS DE ESCRITORIO E APOIO ADMINISTRATIVO LT
+</td>
+<td style="text-align:right;">
+153
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+01106257000195
+</td>
+<td style="text-align:right;">
+162
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+POOL ENGENHARIA SERVICO INDUSTRIA E COMERCIO
+</td>
+<td style="text-align:right;">
+247
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+POOL ENGENHARIA, SERVICO, INDUSTRIA E COMERCIO DE CO
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e873ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+01848287000410
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+60
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+TECMON MONTAGENS TECNICAS INDUSTRIAIS LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e873ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+06224769000170
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+41
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+POSTO TOCANTINS LTDA EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+12230046000186
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+EXPANSAO SERVICOS DE ENGENHARIA EIRELI
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+EXPANSAO SERVICOS DE ENGENHARIA EIRELI
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+27549115000196
+</td>
+<td style="text-align:right;">
+235
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SMART SERVICOS DE CONSULTORIA E TECNOLOGIA LT
+</td>
+<td style="text-align:right;">
+260
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+SMART SERVICOS DE CONSULTORIA E TECNOLOGIA LTDA
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e873ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+33750013000137
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+25
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+LM CONSULTORIA E GESTAO EMPRESARIAL LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+15639166000120
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+GOLD SERVICOS DE CONTABILIDADE E COBRANCA LTD
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+GOLD SERVICOS DE CONTABILIDADE E COBRANCA EIRELI
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+31598318000140
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+CAMPOS E LIMA GESTAO EMPRESARIAL LTDA
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+cep_changed_2019
+</td>
+<td style="text-align:left;">
+CAMPOS E LIMA GESTAO EMPRESARIAL LTDA
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e873ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+35604328000100
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+M G GESTAO EMPRESARIAL EIRELI
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68e873ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+24342072000185
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2019
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+MSM ENGENHARIA E CONSTRUCAO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+11731362000179
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+CONDOMINIO RESIDENCIAL RENAISSANCE
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+CONDOMINIO RESIDENCIAL RENAISSANCE
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68e873ffff
+</td>
+<td style="text-align:left;">
+12266152000110
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+LI SERVICOS
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+LI SERVICOS DE ENGENHARIA E COMERCIO DE MATERIAIS DE
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+13183508000114
+</td>
+<td style="text-align:right;">
+890
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+AMSTERDAM SERVICOS PROFISSIONAIS DE LIMPEZA C
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+AMSTERDAM SERVICOS PROFISSIONAIS DE LIMPEZA, CONSERV
+</td>
+<td style="text-align:right;">
+802
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+84526045000194
+</td>
+<td style="text-align:right;">
+1032
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+GLOBALSERVICE VIGIL E SEGURANCA LTDA
+</td>
+<td style="text-align:right;">
+781
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+GLOBALSERVICE VIGILANCIA E SEGURANCA LTDA
+</td>
+<td style="text-align:right;">
+251
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+13211200
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+90
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+inep
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+04908302000466
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+70
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+GAFIX ENGENHARIA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+07782730000130
+</td>
+<td style="text-align:right;">
+235
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+GLOBALSERVICE TRANSPORTE DE VALORES LTDA
+</td>
+<td style="text-align:right;">
+295
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+GLOBALSERVICE - TRANSPORTE DE VALORES LTDA
+</td>
+<td style="text-align:right;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+10197432000198
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+46
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+EAH EMPRESA AMAZONENSE DE HOTELARIA LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+26658665000180
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+BRAVOS CONSTRUCOES LIMITADA - EPP
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+BRAVOS CONSTRUCOES LTDA EPP
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+14183523000125
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SKN ENTERPRISE EMPREEND IMOB SPE LTDA
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SKN ENTERPRISE EMPREENDIMENTO IMOBILIARIO SPE LTDA
+</td>
+<td style="text-align:right;">
+37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+13536655000201
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+35
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CENTRO DE HEMODIALISE ARI GONCALVES LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+26597460000132
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+MANUEL AUGUSTO PINTO CARDOSO
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+MANUEL AUGUSTO PINTO CARDOSO
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+17112105000135
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SKN EVEREST EMPREEND IMOBILIARIO SPE LTDA
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+SKN EVEREST EMPREENDIMENTO IMOBILIARIO SPE LTDA
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+21823146000107
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+NEW WORK SERV. EM CONSULT. E GESTAO EMP.
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:left;">
+cep_changed_2018
+</td>
+<td style="text-align:left;">
+NEW WORK SERVICOS EM CONSULTORIA E GESTAO EMPRESARIA
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+29828229000109
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+PHD SERVICO DE TECNOLOGIA DA INFORMACAO LTDA
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+22731205000180
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+22
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+W D TECH SERVICOS DE MAN DE ELETR LTDA ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+27434892000195
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+LAM2 SERVICOS DE LIMPEZA LTDA.
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+LAM2 SERVICOS DE LIMPEZA LTDA.
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+08991965000103
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+19
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+A L P SILVA &amp; CIA LTDA ME
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+22977950000103
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+IR COMERCIO DE DOCES EIRELI ME
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+IR COMERCIO DE DOCES EIRELI ME
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+06015395000506
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+AUTO POSTO BONS AMIGOS LTDA
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+AUTO POSTO BONS AMIGOS LTDA
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+13499467000170
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+BIOTEC CONT AMB COM E SERV DE AR CON L
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+rais_2017
+</td>
+<td style="text-align:left;">
+BIOTEC CONTROLE AMBIENTAL, COMERCIO E SERVICOS DE AR
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+23750880000119
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+16
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+rais_2017
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+POTABILIZA PERFURACAO E CONSTRUCAO DE POCOS E
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+30588564000158
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+13
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+new_estab_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+DANURE INDUSTRIA E COMERCIO DE CONFECCAO DE V
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;">
+08343492061005
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+MRV ENGENHARIA E PARTICIPACOES
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+new_estab_2018
+</td>
+<td style="text-align:left;">
+MRV ENGENHARIA E PARTICIPACOES SA
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+898af68ee43ffff
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+09516788000168
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+cep_changed_2018
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+CASTELL ENGENHARIA EIRELI EPP
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+0
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:left;color: white !important;background-color: #bb6868 !important;">
+</td>
+<td style="text-align:right;color: white !important;background-color: #bb6868 !important;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 

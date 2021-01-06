@@ -1,0 +1,73 @@
+---
+output: html_document
+params:
+  ano: 2017
+  outliers: NA
+  outliers_inteira: NA
+  outliers_munis: NA
+title: "Outliers - `r params$ano`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+```{css, echo = FALSE}
+.main-container {
+  max-width: 70%;
+}
+```
+
+## Descrição de setores
+
+- 35 ELETRICIDADE, GÁS E OUTRAS UTILIDADES
+- 36 CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA
+- 38 COLETA, TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS; RECUPERAÇÃO DE MATERIAIS
+- 41 CONSTRUÇÃO DE EDIFÍCIOS
+- 42 OBRAS DE INFRA-ESTRUTURA
+- 43 SERVIÇOS ESPECIALIZADOS PARA CONSTRUÇÃO
+- 49 TRANSPORTE TERRESTRE
+- 51 TRANSPORTE AÉREO
+- 64 ATIVIDADES DE SERVIÇOS FINANCEIROS
+- 78 SELEÇÃO, AGENCIAMENTO E LOCAÇÃO DE MÃO-DE-OBRA
+- 80 ATIVIDADES DE VIGILÂNCIA, SEGURANÇA E INVESTIGAÇÃO
+- 81 SERVIÇOS PARA EDIFÍCIOS E ATIVIDADES PAISAGÍSTICAS
+- 82 SERVIÇOS DE ESCRITÓRIO, DE APOIO ADMINISTRATIVO E OUTROS SERVIÇOS PRESTADOS PRINCIPALMENTE ÀS EMPRESAS
+- 84 ADMINISTRAÇÃO PÚBLICA, DEFESA E SEGURIDADE SOCIAL
+
+# Outliers por setor
+
+```{r, echo = FALSE}
+knitr::kable(params$outliers, format = "html",align = "c") %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  ) %>% 
+  kableExtra::column_spec(1, bold = TRUE)
+```
+
+# RAIS completa
+
+```{r, echo = FALSE}
+knitr::kable(params$outliers_inteira, format = "html",align = "c") %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  ) %>% 
+  kableExtra::column_spec(1, bold = TRUE)
+```
+
+# Por município
+
+```{r, echo = FALSE}
+knitr::kable(params$outliers_munis, format = "html",align = "c") %>% 
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE,
+    position = "center"
+  ) %>% 
+  kableExtra::column_spec(1, bold = TRUE)
+```
