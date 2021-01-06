@@ -1,0 +1,35 @@
+---
+title: "Check Schools"
+author: "MS"
+date: "12/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+library("geodist")
+source(here::here("R_marcus", "setup.R"))
+```
+
+## AOP Schools
+
+### Load datasets
+
+```{r}
+hospitals_2017 <- read_rds(here::here("data/acesso_oport/hospitais", "2019",
+                                    "hospitais_geocoded_pmaq_2019.rds")) 
+  filter(municipio == "PORTO ALEGRE")
+
+hex <- point_to_h3(schools_2017 %>% select(lon, lat), res = 9)
+hex_sf <- h3_to_polygon(unique(hex), simple = FALSE)
+
+schools_2017$hex <- hex
+```
+
+```{r}
+hospitals_2017 %>%
+  mapview(xcol="lon", ycol="lat", zcol="PrecisionDepth", crs=4326)
+
+```
+

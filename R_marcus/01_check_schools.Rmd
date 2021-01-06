@@ -1,0 +1,122 @@
+---
+title: "Check Schools"
+author: "MS"
+date: "12/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+library("geodist")
+
+source(here::here("R_marcus", "setup.R"))
+```
+
+## AOP Schools
+
+### Load datasets
+
+```{r}
+schools_2017 <- read_rds(here::here("data/acesso_oport/censo_escolar", "2017",
+                                    "educacao_inep_final_2017.rds")) %>%
+  filter(code_muni == "3509502")
+
+hex <- point_to_h3(schools_2017 %>% select(lon, lat), res = 9)
+hex_sf <- h3_to_polygon(unique(hex), simple = FALSE)
+
+schools_2017$hex <- hex
+```
+
+```{r}
+unique(schools_2017$PrecisionDepth)
+```
+
+```{r}
+geodist(schools_2017 %>% select(lon, lat)) %>% as.data.frame() %>%
+  mutate(id = row_number()) %>%
+  pivot_longer(cols = starts_with("V")) %>%
+  filter(value < 10, value > 0) %>% View()
+
+```
+
+```{r}
+unique(hospitals_2017$tipo_unidade)
+```
+
+
+```{r}
+schools_2017 %>%
+  # filter(co_entidade=="43208428") %>%
+  drop_na() %>%
+  mapview(xcol="lon", ycol="lat", zcol="PrecisionDepth", crs=4326)
+```
+
+```{r}
+school_by_hex <- schools_2017 %>% count(hex) 
+
+school_by_hex_sf <- hex_sf %>%
+  left_join(school_by_hex, by=c("h3_address"="hex")) 
+
+  mapview(x=school_by_hex_sf, zcol="n") 
+  mapview(x=schools_2017, xcol="lon", ycol="lat", crs=4326)
+```
+
+```{r}
+scho
+geodist()
+```
+
+
+## All schools
+
+```{r}
+schools_all <- rbind(
+  read_rds(here::here("data/acesso_oport/censo_escolar", "2017", 
+                      "educacao_inep_final_2017.rds")) %>% mutate(year = 2017),
+  read_rds(here::here("data/acesso_oport/censo_escolar", "2018", 
+                      "educacao_inep_final_2018.rds")) %>% mutate(year = 2018),
+  read_rds(here::here("data/acesso_oport/censo_escolar", "2019", 
+                      "educacao_inep_final_2019.rds")) %>% mutate(year = 2019),
+  fill = TRUE
+)
+
+schools_df <- schools_all %>%
+  select(co_entidade, code_muni, no_entidade, year, lon, lat) %>%
+  drop_na()
+
+
+hex <- point_to_h3(schools_df %>% select(lon, lat), res = 9)
+
+schools_df$hex <- hex
+```
+
+
+```{r}
+schools_wide <- schools_df %>%
+  pivot_wider(values_from = hex, names_from = year)
+```
+
+```{r}
+schools_df %>%
+  group_by(co_entidade) %>%
+  filter(lon != mean(lon)) %>%
+  arrange(co_entidade)
+  summarise(lon = sum())
+```
+
+```{r}
+schools_all %>% filter(co_entidade == "13071769")
+```
+
+
+```{r}
+schools_wide %>%
+  filter(is.na(`2017`))
+```
+
+
+
+
+
+
