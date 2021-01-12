@@ -113,3 +113,11 @@ if (!dir.exists(here('data', 'geocode_manual_fix'))) {
 # salvar dados
 data.table::fwrite(health, here::here('data','geocode_manual_fix', "hospitals_good_PD.csv"))
 
+
+# 3 count results ---------------------------------------------------------
+# quantidade de escolas/hospitais em cada categoria (atualizadas ou removidas)
+count_educ <- unique(educ, by = 'id')[, .N, by = acao][, perce := 100*(N/sum(N)) ]
+count_educ
+count_health <- unique(health, by = 'id')[, .N, by = acao][, perce := 100*(N/sum(N)) ]
+count_health
+
