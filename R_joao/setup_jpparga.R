@@ -14,6 +14,7 @@ library(forcats)
 library(stringr)
 library(h3jsr)
 library(magrittr)
+library(googlesheets4)
 
 # municipalities codes
 munis_df <- data.table::setDT(tibble::tribble(
