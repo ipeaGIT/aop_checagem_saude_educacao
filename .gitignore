@@ -6,7 +6,5 @@ R_daniel/esqueleto_relatorio.html
 R_daniel/esqueleto_rais.html
 data/*
 data-raw/*
-reports/cnpjs_por_etapa/debug.log
-reports/distribuicao_uso_do_solo/*/debug.log
-reports/proposta_outliers/debug.log
+reports/*/debug.log
 .DS_Store
