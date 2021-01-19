@@ -1,0 +1,79 @@
+---
+output: html_document
+params:
+  muni: Rio de Janeiro
+  rais_2017: NA
+  rais_2018: NA
+  rais_2019: NA
+  limite: 0
+title: "CNPJs problemáticos - `r params$muni`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.height = 1.5, fig.align = "center")
+library(magrittr)
+library(ggplot2)
+colunas_desejadas <- c("id_estab", "cnae.setor", "PrecisionDepth", "total_corrigido", "razao_social", "MatchedAddress", "link")
+printa_tabela <- function(rais) {
+  knitr::kable(
+    rais, 
+    format = "html", 
+    align = "c"
+  ) %>% 
+    kableExtra::kable_styling(
+      bootstrap_options = c("striped", "hover", "condensed"),
+      full_width = FALSE,
+      position = "center"
+    )
+}
+```
+
+### Observação
+
+Foram filtrados fora estabelecimentos com má precisão e de setores problemáticos.
+
+# CNPJs problemáticos - 2017
+
+```{r}
+ggplot(params$rais_2017) + 
+  geom_boxplot(aes(total_corrigido)) +
+  geom_segment(
+    aes(x = params$limite, xend = params$limite, y = 0.3, yend = -0.3), 
+    color = "red"
+  )
+
+rais_tabela <- params$rais_2017[total_corrigido >= params$limite, ..colunas_desejadas]
+rais_tabela <- rais_tabela[order(-total_corrigido)]
+printa_tabela(rais_tabela)
+
+```
+
+# CNPJs problemáticos - 2018
+
+```{r}
+ggplot(params$rais_2018) + 
+  geom_boxplot(aes(total_corrigido)) +
+  geom_segment(
+    aes(x = params$limite, xend = params$limite, y = 0.3, yend = -0.3), 
+    color = "red"
+  )
+
+rais_tabela <- params$rais_2018[total_corrigido >= params$limite, ..colunas_desejadas]
+rais_tabela <- rais_tabela[order(-total_corrigido)]
+printa_tabela(rais_tabela)
+```
+
+# CNPJs problemáticos - 2019
+
+```{r}
+ggplot(params$rais_2019) + 
+  geom_boxplot(aes(total_corrigido)) +
+  geom_segment(
+    aes(x = params$limite, xend = params$limite, y = 0.3, yend = -0.3), 
+    color = "red"
+  )
+
+rais_tabela <- params$rais_2019[total_corrigido >= params$limite, ..colunas_desejadas]
+rais_tabela <- rais_tabela[order(-total_corrigido)]
+printa_tabela(rais_tabela)
+```
